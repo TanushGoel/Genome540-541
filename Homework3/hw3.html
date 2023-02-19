@@ -1,0 +1,68 @@
+<HTML>
+
+<head>
+<title> Genome 540 Homework Assignment 3 </title>
+</head>
+
+<body BGCOLOR="#FFFFFF" >
+  <h3 align=center>Genome 540 Homework Assignment 3</h3>
+  <h3 align="center">(Winter Quarter 2023)</h3>
+  <h3 align=center>Due Sunday Jan 29, 11:59pm</h3>
+
+  <p>Write a program that does the following, for the DNA sequence of the <a href="data/hw3/s_pyogenes.gbff"><i>S. pyogenes</i> genome</a> (the bacterium where the CRISPR system, later appropriated for gene editing, was discovered). (At the bottom of this page there are links to two other sequences, and their results, which you can use to test your program.)</p>
+    <ol>
+    <li style="margin-bottom: 15px;"> Read the Genbank file (with suffix .gbff), and from the CDS FEATURES entries infer the locations of the starts of the coding sequences on both strands. CDS coordinates containing a '&lt;' or '&gt;' should be ignored (these symbols indicate that the precise start or end of the coding sequence is uncertain). Otherwise, consider each CDS entry listed in the file one time, regardless of whether there are other CDS entries that are similar/identical/overlapping (i.e., do not try to remove duplicates).</li>
+    <li style="margin-bottom: 15px;"> Use the information in 1) to compute count and frequency matrices (of the type presented in lecture 4 for <i>C. elegans</i>  splice sites) for the translation start sites. These should extend from position -10 (i.e. 10 bases upstream of the first base of the start codon) to position +10 (i.e. 10 bases downstream of that base) -- 21 bases in all. To generate this you will need to read in the genome sequence (which appears later in the Genbank file), and to complement it in order to handle genes on the opposite strand correctly. Ns in the sequence (unknown bases) should be ignored when computing these matrices. CDS entries marked with 'join' indicate non-contiguous sections of coding sequence, and should be processed as such when determining the base composition at the first 10 positions. Thus, for an entry marked as join(1000..1008,1200..1500), position +10 would correspond to coordinate 1201.</li>
+    <li style="margin-bottom: 15px;"> Compute a site weight matrix using the frequency table for the translation start sites, together with the genome nucleotide frequencies (based on the forward and reverse strands). Entries in the weight matrix should be the log, to the base 2, of the ratio of the appropriate frequencies. Use -99.0 as the weight for any cells that have frequency 0 in the translation start sites.</li>
+    <li style="margin-bottom: 15px;"> Using the weight matrix from (3), generate two score histograms:
+        <ol>
+        <li style="margin-bottom: 5px;"> a histogram of the scores of all "true" translation start sites (i.e. the ones used to construct the site frequency table)</li>
+        <li style="margin-bottom: 5px;"> a histogram of the scores of all positions in the actual genome sequence (and its complement).</li>
+        </ol>
+        <p>When calculating scores, sequence positions that are N should be given a score of 0. For scores greater than or equal to -50, use a bin size of 1 for the score histograms; if there are scores less than -50, aggregate the counts for all such scores into a single bin called "lt-50" (see solution to Test sequence 2 for an example).</p>
+    <li style="margin-bottom: 15px;"> Generate a list of all positions in the genome and its complement that have scores >= 10.0 but which do NOT correspond to annotated translation start sites.</li>
+    </ol>
+
+  <p>Your output should conform to the template used in the examples - further details are provided below.</p>
+
+  <p>You must turn in your results <i>and</i> your computer program, using the below template file</a>. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.</li></p>
+
+
+
+<h3>Example sequences & solutions:</h3>
+<p><a href="data/hw3/test1.gbff">Test sequence 1</a>
+
+<p><a href="data/hw3/test1.txt">Answer for test sequence 1</a>
+
+<p><a href="data/hw3/test2.gbff">Test sequence 2</a>
+
+<p><a href="data/hw3/test2.txt">Answer for test sequence 2</a>
+
+
+<h3>Template Details:</h3>
+<ul>
+<li style="margin-bottom: 5px;"> Background Frequency:
+Like nucleotide histogram, but giving fraction of times (to 4 decimal places) each nucleotide occurs in the sequence and its complement. In computing these, ignore ambiguity-coded nucleotides (i.e. Ns).
+
+<li style="margin-bottom: 5px;"> Count Matrix:
+Put the matrix of nucleotide counts at each motif position for known translation start sites, in the order: A, C, G, T. Ignore occurrences of ambiguity-coded nucleotides at each position.
+
+<li style="margin-bottom: 5px;"> Frequency Matrix:
+Like count matrix, but indicating the fraction of times (to 4 decimal places) each nucleotide occurs at each position, rather than the total counts.
+
+<li style="margin-bottom: 5px;"> Weight Matrix:
+Like frequency matrix, but giving weight. Give values to four decimal places.
+
+<li style="margin-bottom: 5px;"> Maximum Score:
+The maximum possible score - i.e., the score for the "ideal" sequence (to 10 decimal places).
+
+<li style="margin-bottom: 5px;"> Score Histogram CDS:
+Two columns, where the first is score rounded down to the nearest integer, and the second is the number of times that score occurs for true start sites.  Also include an additional row for all scores less than -50.
+
+<li style="margin-bottom: 5px;"> Score Histogram All:
+As above, but for all positions in the genome (and its complement).
+
+<li style="margin-bottom: 5px;"> Position List:
+A list of positions in the genome where scores >= 10.0 occurred but which do NOT correspond to an annotated translation start site. Provide the position (in top strand, origin 1 co-ordinates), strand = 0 (for top) or 1 (for bottom), and score to four decimal places.
+
+</ul>
