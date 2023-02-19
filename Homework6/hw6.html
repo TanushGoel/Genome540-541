@@ -1,0 +1,53 @@
+<HTML>
+
+<head>
+<title> Genome 540 Homework Assignment 6 </title>
+</head>
+
+<body BGCOLOR="#FFFFFF" >
+    <h3 align="center">Genome 540 Homework Assignment 6</h3>
+    <h3 align="center">(Winter Quarter 2023)</h3>
+    <h3 align="center">Due Sunday Feb 19, 11:59pm</h3>
+
+
+<ol> 
+    <li style="margin-bottom: 15px;"> Write a program to identify regions of elevated copy-number using the D-segment algorithm described in lecture, using the number of read-starts at every base to determine the base's score. This program should:
+    <ul>
+        <li style="margin-bottom: 5px;"> read in two input files 
+        <ul>
+            <li style="margin-bottom: 2px;"> a mapped read count file (described below)
+            <li style="margin-bottom: 2px;"> a 'scoring scheme' file that indicates the score for each read count (0, 1, 2, or >=3 reads, scoring scheme described below)
+        </ul>
+        </li>
+        <li style="margin-bottom: 5px;"> output the following information (see template file for example):
+        <ul>
+            <li style="margin-bottom: 2px;"> numbers of background and elevated copy-number segments
+            <li style="margin-bottom: 2px;"> a list of elevated copy-number segments including their start position, end position, and score (rounded to two decimal points)
+            <li style="margin-bottom: 2px;"> annotations for the three segments with the highest scores (use the UCSC genome browser and put down anything interesting about the segment)
+            <li style="margin-bottom: 2px;"> histograms of read-start counts (i.e. number of positions with 0, 1, 2, and >=3 read-starts) for a) background segments, and b) elevated copy-number segments
+        </ul>
+        </li>
+    </ul>
+    </li>
+
+    <li style="margin-bottom: 15px;"> Run your program on <a href="data/hw6/chm13.chr16.txt.gz">this file</a> using the following scoring scheme:
+    <ul>
+        <li style="margin-bottom: 2px;"> score for 0 reads: -0.1077</li>
+        <li style="margin-bottom: 2px;"> score for 1 read: 0.4772</li>
+        <li style="margin-bottom: 2px;"> score for 2 reads: 1.0622</li>
+        <li style="margin-bottom: 2px;"> score for >=3 reads: 1.6748</li>
+        <li style="margin-bottom: 2px;"> D = -20</li>
+        <li style="margin-bottom: 2px;"> S = -D = 20</li>
+    </ul>
+    </li>
+
+    <li style="margin-bottom: 15px;">
+    The input file has three columns: chromosome, position, and a read start count. The file was created based on the start positions of all reads mapping to chromosome 16 for the individual CHM13. Sequencing was performed on the Illumina platform, and the reads were mapped to the human reference hg38 using BWA. To create the likelihood scores, the number of read starts mapping to chromsome 16 were used to estimate the mean number, m, of read starts per base. This was then used to create two Poisson distributions: one with mean m, and the other with mean 1.5 m. The first distribution should apply to read starts in 'background' (= homozygous reference) while the second distribution should reflect a region heterozygously duplicated in the sample relative to the reference. The scoring scheme is the log likelihood ratio (with log base = 2) of these two distributions given the number of read starts observed. As discussed in lecture, 2^S should correspond (very approximately -- & ignoring the constant K) to the expected average spacing between segments of score >= S in 'background'.
+    </li>
+
+    <li style="margin-bottom: 15px;"> Using this <a href="data/hw6/example.input.txt">example input</a> and this <a href="data/hw6/example.scoring.scheme.txt">example scoring scheme</a> your output file should look like <a href="data/hw6/hw6_template.txt">this template</a>. Use the same template structure for your output on the actual file. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.
+
+</ol>
+
+</body>
+</html>
