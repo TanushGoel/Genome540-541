@@ -1,0 +1,369 @@
+Assignment: GS 540 HW2
+Name: Tanush Goel
+Email: tgoel02@uw.edu
+Language: Java
+Runtime: 1373.5 minutes
+
+Fasta 1: CP001872.fna
+Non-alphabetic characters: 1145
+>chr10:90000000-100000000
+*=10000000
+A=2920816
+C=2082691
+G=2074676
+T=2921817
+N=0
+
+Nucleotide Frequencies:
+A: 0.29208
+C: 0.20826
+G: 0.20746
+T: 0.29218
+
+Dinucleotide Count Matrix:
+A=960440 505169 714580 740627 
+C=730722 541394 96502 714073 
+G=594572 438666 537173 504264 
+T=635081 597462 726421 962853 
+
+Dinucleotide Frequency Matrix:
+A=0.09604 0.05051 0.07145 0.07406 
+C=0.07307 0.05413 0.00965 0.0714 
+G=0.05945 0.04386 0.05371 0.05042 
+T=0.0635 0.05974 0.07264 0.09628 
+
+Conditional Frequency Matrix:
+A=0.32882 0.17295 0.24465 0.25356 
+C=0.35085 0.25994 0.04633 0.34286 
+G=0.28658 0.21143 0.25891 0.24305 
+T=0.21735 0.20448 0.24861 0.32953
+
+Fasta 2: simulated_equal_freq.fna
+Non-alphabetic characters: 0
+null
+*=9999999
+A=2500571
+C=2500431
+G=2499273
+T=2499724
+N=0
+
+Nucleotide Frequencies:
+A: 0.25005
+C: 0.25004
+G: 0.24992
+T: 0.24997
+
+Fasta 3: simulated_markov_0.fna
+Non-alphabetic characters: 0
+simulated_markov_0
+*=10000000
+A=2916234
+C=2084253
+G=2077106
+T=2922407
+N=0
+
+Nucleotide Frequencies:
+A: 0.29162
+C: 0.20842
+G: 0.20771
+T: 0.29224
+
+Dinucleotide Count Matrix:
+A=851543 607704 605398 851588 
+C=607788 435108 432359 608998 
+G=605717 432543 431665 607181 
+T=851186 608897 607684 854640 
+
+Dinucleotide Frequency Matrix:
+A=0.08515 0.06077 0.06053 0.08515 
+C=0.06077 0.04351 0.04323 0.06089 
+G=0.06057 0.04325 0.04316 0.06071 
+T=0.08511 0.06088 0.06076 0.08546 
+
+Conditional Frequency Matrix:
+A=0.292 0.20838 0.20759 0.29201 
+C=0.2916 0.20875 0.20744 0.29219 
+G=0.29161 0.20824 0.20782 0.29232 
+T=0.29126 0.20835 0.20793 0.29244
+
+Fasta 4: simulated_markov_1.fna
+Non-alphabetic characters: 0
+simulated_markov_1
+*=10000000
+A=2923561
+C=2081529
+G=2074378
+T=2920532
+N=0
+
+Nucleotide Frequencies:
+A: 0.29235
+C: 0.20815
+G: 0.20743
+T: 0.29205
+
+Dinucleotide Count Matrix:
+A=961448 505691 716153 740269 
+C=731824 540605 96360 712740 
+G=594000 438134 536802 505441 
+T=636288 597099 725063 962082 
+
+Dinucleotide Frequency Matrix:
+A=0.09614 0.05056 0.07161 0.07402 
+C=0.07318 0.05406 0.00963 0.07127 
+G=0.0594 0.04381 0.05368 0.05054 
+T=0.06362 0.0597 0.0725 0.0962 
+
+Conditional Frequency Matrix:
+A=0.32886 0.17297 0.24495 0.2532 
+C=0.35158 0.25971 0.04629 0.34241 
+G=0.28635 0.21121 0.25877 0.24365 
+T=0.21786 0.20444 0.24826 0.32942 
+
+Run 1:
+
+Fasta 1: CP001872.fna
+Non-alphabetic characters: 1145
+>chr10:90000000-100000000
+*=10000000
+A=2920816
+C=2082691
+G=2074676
+T=2921817
+N=0
+
+Fasta 2: simulated_equal_freq.fna
+Non-alphabetic characters: 0
+null
+*=1000000
+A=2500572
+C=2500431
+G=2499273
+T=2499724
+N=0
+
+Match Length Histogram:
+1 1
+2 1
+3 1
+4 1
+5 1
+6 1
+7 1
+8 1
+9 1
+10 84822
+11 2932058
+12 4402125
+13 1863685
+14 532018
+15 138608
+16 35046
+17 8830
+18 2116
+19 512
+20 127
+21 35
+22 8
+23 1
+
+The longest match length: 23
+Number of match strings: 1
+
+Match string: CTCTAGGCTTTTTCTATAGCAGA
+Description: This sequence comes from [look up entry in .gbff annotation file using the position information below]
+
+Fasta: CP001872.fna
+Position: 4450021
+Strand: forward
+
+Fasta: simulated_equal_freq.fna
+Position: 6733536
+Strand: forward
+
+Run 2:
+
+Fasta 1: CP001872.fna
+Non-alphabetic characters: 1145
+>chr10:90000000-100000000
+*=10000000
+A=2920816
+C=2082691
+G=2074676
+T=2921817
+N=0
+
+Fasta 3: simulated_markov_0.fna
+Non-alphabetic characters: 0
+simulated_markov_0
+*=10000000
+A=2853984
+C=2157976
+G=2155221
+T=2832819
+N=0
+
+Nucleotide Frequencies:
+A: 0.28539
+C: 0.21579
+G: 0.21552
+T: 0.28328
+
+Dinucleotide Count Matrix:
+A=815099 615015 614485 809384 
+C=616424 465251 465424 610877 
+G=614467 465915 464084 610755 
+T=807994 611795 611227 801803 
+
+Dinucleotide Frequency Matrix:
+A=0.0815 0.0615 0.06144 0.08093 
+C=0.06164 0.04652 0.04654 0.06108 
+G=0.06144 0.04659 0.0464 0.06107 
+T=0.08079 0.06117 0.06112 0.08018 
+
+Conditional Frequency Matrix:
+A=0.2856 0.21549 0.2153 0.28359 
+C=0.28564 0.21559 0.21567 0.28307 
+G=0.2851 0.21617 0.21533 0.28338 
+T=0.28522 0.21596 0.21576 0.28304 
+
+Match Length Histogram:
+1 1
+2 1
+3 1
+4 1
+5 1
+6 1
+7 1
+8 1
+9 544
+10 191055
+11 2457214
+12 4110138
+13 2235326
+14 731104
+15 202943
+16 52850
+17 13949
+18 3600
+19 949
+20 235
+21 68
+22 13
+23 4
+
+The longest match length: 23
+Number of match strings: 1
+
+Match string: TATATTTTAACATAGGAAACATT
+Description: This sequence comes from [look up entry in .gbff annotation file using the position information below]
+
+Fasta: CP001872.fna
+Position: 5675397
+Strand: forward
+
+Fasta: simulated_markov_0.fna
+Position: 34377
+Strand: forward
+
+Run 3:
+
+Fasta 1: CP001872.fna
+Non-alphabetic characters: 1145
+>chr10:90000000-100000000
+*=10000000
+A=2920816
+C=2082691
+G=2074676
+T=2921817
+N=0
+
+Fasta 4: simulated_markov_1.fna
+Non-alphabetic characters: 0
+simulated_markov_1
+*=10000000
+A=2854848
+C=2156377
+G=2156013
+T=2832762
+N=0
+
+Nucleotide Frequencies:
+A: 0.28548
+C: 0.21563
+G: 0.2156
+T: 0.28327
+
+Dinucleotide Count Matrix:
+A=880145 542220 754545 677937 
+C=749820 557400 103762 745395 
+G=627093 435688 555654 537578 
+T=597790 621068 742052 871852 
+
+Dinucleotide Frequency Matrix:
+A=0.08801 0.05422 0.07545 0.06779 
+C=0.07498 0.05574 0.01037 0.07453 
+G=0.0627 0.04356 0.05556 0.05375 
+T=0.05977 0.0621 0.0742 0.08718 
+
+Conditional Frequency Matrix:
+A=0.30829 0.18992 0.2643 0.23746 
+C=0.34772 0.25848 0.04811 0.34567 
+G=0.29085 0.20208 0.25772 0.24933 
+T=0.21102 0.21924 0.26195 0.30777 
+
+Match Length Histogram:
+1 1
+2 1
+3 1
+4 1
+5 1
+6 1
+7 236
+8 5502
+9 36321
+10 256557
+11 1808058
+12 3955041
+13 2603009
+14 947592
+15 277765
+16 82156
+17 20509
+18 5373
+19 1390
+20 361
+21 91
+22 22
+23 7
+24 2
+25 1
+26 1
+
+The longest match length: 26
+Number of match strings: 1
+
+Match string: ACTTCATTCAGACTAACAGCAAATAA
+Description: This sequence comes from [look up entry in .gbff annotation file using the position information below]
+
+Fasta: CP001872.fna
+Position: 8865575
+Strand: forward
+
+Fasta: simulated_markov_1.fna
+Position: 1462131
+Strand: forward
+
+Question 4-A: Given your results, what can you conclude about the statistical significance of matches between the orthologous mouse and human regions in homework 1?
+
+	The results suggest that the mouse and human regions have a high statistical significance of matches with each other, as indicated by the larger proportion of matching substrings of a much higher length than of the simulated sequence. The histograms show a much lower peak and even the fact that the largest match length for the simulated sequences are nowhere near that of the mouse genome indicate that these subsequences cannot occur by random chance.
+
+Question 4-B: Several interesting genes are located here. For example, the CPEB3 gene contains an intron-encoded self-cleaving ribozyme; Insulin Degrading Enzyme (IDE), an insulin protease has clinical significance for Alzheimer's disease. The HHEX gene encodes a member of the homeobox family of transcription factors, many of which are involved in developmental processes, etc. Using the longest match sequence(s) you found in Assignment 1, you should then try to figure out what biological feature they correspond to. You can do this by exploring the UCSC browser (hg38 and mm39). As a first step, it may be helpful to BLAST your longest match sequence(s) against the Human and Mouse genomes.
+
+	The longest matching subsequence (GTGGTTATGAGTGGAAAAATGAGTGTTTCCAAAGCTCAGAGTATTTATGGGATTCCCCACAGTACACTGGAGTACAAAGTAAAGGAGAGGCTGGGCACTTTGAAAAACCCTCCAAAGAAAAAGATGAAATTAATGAGGTCGGAGGGGCCAGATGTTTCTGTAAAGATTGAATTAGATCCCCAGGGAGAGGCAGCACAAAGTGCAAATGAATCAAAAA) corresponds to the ligand-dependent corepressor isoform 3 (LCOR3) and ligand-dependent corepressor isoform 2 (LCOR2). These are different forms or variants of the same protein known as the ligand-dependent corepressor. This protein is involved in regulating gene expression in response to signals from small molecule ligands and is involved in processes such as chromatin remodeling, transcriptional regulation, and gene silencing. LCOR3 and LCOR2 are similar in function, but may have distinct structural or regulatory differences that allow them to have unique roles in the regulation of gene expression.
+
+Question 4-C: Based on your histogram, how many UCEs are there in this region? Justify your answer. Hint: see this Science paper on "ultraconserved elements" (UCEs; >=200 bp exact match between mouse and human).
+
+	Based on my histograms, there are 0 UCEs between the human and simulated genomic sequences. There are no exact matches that reach 200 bases. However, within the mouse and human genome, there is one UCE in the 10 megabase regions given. This is the sequence that corresponds to the LCOR3 and LCOR2. 

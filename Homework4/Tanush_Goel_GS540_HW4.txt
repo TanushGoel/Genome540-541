@@ -1,0 +1,34 @@
+Assignment: GS 540 HW4
+Name: Tanush Goel
+Email: tgoel02@uw.edu
+Language: Python
+Runtime: ~10 seconds
+
+Part 1
+Score: 13
+Begin: ii
+End: ix
+Path: DFK
+
+Part 2
+Score: 7
+Begin: i
+End: xiii
+Path: CKP
+
+Part 3
+Fasta: s_pyogenes
+Non-alphabetic characters: 0
+>NZ_LS483338.1 Streptococcus pyogenes strain NCTC12064 chromosome 1, complete sequence
+*=1746380
+A=537381
+C=334523
+G=338691
+T=535785
+N=0
+
+Score: 13.28
+Begin: 235971
+End: 236001
+Path: GGCGGTGGCGGAGGAGGCGGCGGCGGTGCC
+Description: This sequence lies within the DQM35_RS01315 gene and encodes for DUF2207 domain-containing protein
