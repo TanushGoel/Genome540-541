@@ -1,0 +1,108 @@
+<HTML>
+
+<head>
+<title> Genome 540 Homework Assignment 4 </title>
+</head>
+
+<body BGCOLOR="#FFFFFF" >
+    <h3 align="center">Genome 540 Homework Assignment 4</h3>
+    <h3 align="center">(Winter Quarter 2023)</h3>
+    <h3 align="center">Due Sunday Feb 5, 11:59pm</h3>
+
+<ol>
+    <li style="margin-bottom: 15px;"> Write a program to find a highest-weight path in a weighted directed acyclic graph.  This program should: 
+    <ul>
+        <li style="margin-bottom: 5px;"> read in an input file that contains a representation of the graph in the following form: 
+        <ul>
+            <li style="margin-bottom: 5px;"> a list of vertices, with each vertex on a separate line. The line should consist of 
+            <ol>
+                <li style="margin-bottom: 2px;"> a line type indicator such as 'V' to specify that the line describes a vertex </li>
+                <li style="margin-bottom: 2px;"> a label (arbitrary string of up to 10 characters) for the vertex, which should be unique, i.e. different for different vertices. </li>
+                <li style="margin-bottom: 2px;"> the string "START" if the path is to be constrained to start at this vertex </li>
+                <li style="margin-bottom: 2px;"> the string "END" if the path is to be constrained to end at this vertex </li>
+            </ol>
+            At most one vertex should be designated the START and at most one vertex should be designated the END. If none are, the path is assumed to be unconstrained. You may assume that parents precede children in the file, and then use this order in implementing the dynamic programming algorithm.
+            </li>
+
+            <li style="margin-bottom: 5px;"> a list of edges, with each edge on a separate line. The line should consist of 
+            <ol>
+                <li style="margin-bottom: 2px;"> a line type indicator such as 'E' to specify that the line describes an edge </li>
+                <li style="margin-bottom: 2px;"> a label for the edge (which need not be unique -- i.e. different edges can have the same label); </li>
+                <li style="margin-bottom: 2px;"> the label of the edge's beginning vertex; </li>
+                <li style="margin-bottom: 2px;"> the label of its ending vertex; </li>
+                <li style="margin-bottom: 2px;"> the numerical weight attached to the edge. </li>
+            </ol>
+            </li>
+        </ul>
+        </li>
+
+        <li style="margin-bottom: 5px;"> use dynamic programming to find the highest weight path (with additive, not multiplicative, path weights). </li>
+
+        <li style="margin-bottom: 5px;"> output:
+        <ul>
+            <li style="margin-bottom: 2px;"> the path score
+            <li style="margin-bottom: 2px;"> the label of the beginning vertex on the path
+            <li style="margin-bottom: 2px;"> the label of the ending vertex on the path
+            <li style="margin-bottom: 2px;"> (in order) the labels for all the edges that occur on this path. For example, if the graph is a sequence graph and labels correspond to nucleotides in the  sequence, the list of labels would correspond to the sequence of the highest scoring segment of the sequence.
+        </ul>
+        </li>
+    </ul>
+    </li>
+
+    <li style="margin-bottom: 15px;"> Write a program that: 
+    <ul>
+        <li style="margin-bottom: 5px;"> reads in 2 input files:
+        <ul>
+            <li style="margin-bottom: 2px;"> a FASTA file containing a DNA sequence, and </li>
+            <li style="margin-bottom: 2px;"> a 'scoring scheme' file that indicates a score to be attached to each possible base (A, C, G, T, or other) </li>
+        </ul>
+        </li>
+        
+        <li style="margin-bottom: 5px;"> creates the sequence graph for the sequence, as described in lecture (i.e. a 'linked list' with one edge per residue). 
+        <ul>
+            <li style="margin-bottom: 2px;"> the labels attached to successive vertices should be successive integers, represented as character strings (the first vertex being '0', the second being '1', the third being '2', and so on); </li>
+            <li style="margin-bottom: 2px;"> the label attached to each edge should be the corresponding residue; </li>
+            <li style="margin-bottom: 2px;"> the weight attached to an edge should be the score for that residue, as specified in the scoring scheme file. </li>
+        </ul>
+        </li>
+        
+        <li style="margin-bottom: 5px;"> outputs this graph in a file that has the appropriate input format for the program described in #1 above (with no vertices designated START or END). </li>
+    </ul>
+    </li>
+
+    <li style="margin-bottom: 15px;"> For a graphic depiction of a WDAG:
+    <ul> 
+        <li style="margin-bottom: 5px;"> Convert (by hand) the graph into an input file having the format described in #1 above. </li>
+        <li style="margin-bottom: 5px;"> Run your program in #1 above on this input file. </li>
+    </ul>
+    </li>
+
+    <li style="margin-bottom: 15px;"> For a genome sequence:
+    <ul> 
+        <li style="margin-bottom: 5px;"> Run the program in #2 above, using as input files the FASTA file for that genomeand a scoring scheme file that attaches -1.49 to an A or T nucleotide, and 0.74 to a G or C (and assigns 0 to any ambiguity characters in the sequence). Then run your program in #1 above on the resulting output file in order to find the highest scoring segment (= path) of the sequence. </li>
+    </ul>
+    Your final output should include: 
+    <ul>
+        <li style="margin-bottom: 5px;"> the first line of the .fna file </li>
+        <li style="margin-bottom: 5px;"> the nucleotide count histogram </li>
+        <li style="margin-bottom: 5px;"> the output of the program in #1:
+        <ul>
+            <li style="margin-bottom: 2px;"> the score of the highest-scoring segment
+            <li style="margin-bottom: 2px;"> the location (the first and last nucleotide positions, as deduced from the vertex labels)
+            <li style="margin-bottom: 2px;"> the sequence (as indicated by the edge labels) 
+        </ul>
+        </li>
+        <li style="margin-bottom: 5px;"> a description of the segment (look up entry in .gbff/.gff annotation file)
+    </ul>
+    </li>
+
+    <li style="margin-bottom: 15px;"> For the homework assignment, you should run your programs on the <a href="data/hw4/hw4_dag_2023.pdf">graph depicted here</a> <b> AND </b> on the genome sequence of <a href="data/hw4/s_pyogenes.fa"><i>S. pyogenes</i></a> (<a href="data/hw4/s_pyogenes.gbff">gbff</a>). For the graph, initially find the maximum weighted path without start/end constraints. Then repeat the analysis constraining the path to start at node 'i' and end at node 'xiii'. Do not use any start/end constraint for the genome sequence analysis.To test whether your program is working correctly, run it first on the <a href="data/hw4/test_dag.pdf"> test example graph</a> (both without constraint and requiring the path start at node 'vii' and end at node 'i'); and on the test genome sequence of <a href="data/hw4/CP003508.fna">Mycoplasma gallisepticum</a> (<a href="data/hw4/CP003508.gff">gff</a>). Solutions to for the example graph and Mycoplasma gallisepticum genome sequence are provided in the results template below.
+
+    <li>You must turn in your results <i>and</i> your computer program, using <a href="data/hw4/hw4_template.txt">this file</a> as a template. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.</li>
+</ol>
+
+</body>
+</html>
+
+
+
