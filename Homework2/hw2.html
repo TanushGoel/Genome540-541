@@ -1,0 +1,61 @@
+<HTML>
+
+<head>
+<title> Genome 540 Homework Assignment 2 </title>
+</head>
+
+<body BGCOLOR="#FFFFFF" >
+  <h3 align=center>Genome 540 Homework Assignment 2</h3>
+  <h3 align="center">(Winter Quarter 2023)</h3>
+  <h3 align=center>Due Sunday Jan 22, 11:59pm</h3>
+
+  <ol>
+  <li style="margin-bottom: 15px;"> Write a program that generates the FASTA files of two simulated sequences. This program should:
+    <ul>
+    <li style="margin-bottom: 5px;"> read in a file in FASTA format </li>
+    <li style="margin-bottom: 5px;"> determine the nucleotide counts and frequencies, the dinucleotide counts and frequencies, and the length, for the input sequence </li>
+    <li style="margin-bottom: 5px;"> using the equal frequency assumption, produce a simulated sequence with the same length and then output a file in FASTA format containing the simulated sequence</li>
+    <li style="margin-bottom: 5px;"> using an order-0 Markov model, produce a simulated sequence with the same length and nucleotide frequency as the input sequence, and then output a file in FASTA format containing the simulated sequence</li>
+    <li style="margin-bottom: 5px;"> using an order-1 Markov model, produce a simulated sequence with the same length and dinucleotide frequency as the input, and then output a file in FASTA format containing the simulated sequence</li>
+    </ul>
+  </li>
+  <p> The sequence names for your output sequences should indicate that they are simulated (and the model used). Note that the nucleotide and dinucleotide counts in your simulated sequences may differ slightly from those in the input, due to the randomization process. </p>
+
+  <li style="margin-bottom: 15px;"> Use your program in #1 above to generate three simulated FASTA files based on the length and nucleotide or dinucleotide frequency of <a href="data/hw1/mm39_chr19_35Mb_45Mb.fa">the 10-megabase <b>mouse</b> genomic region </a> used in homework 1.
+    <p>Your output should include the information below for each of the four fasta files (the original and three simulated) </p>
+    <ul>
+    <li style="margin-bottom: 5px;"> the name and first line of the fasta file</li>
+    <li style="margin-bottom: 5px;"> the nucleotide count histogram</li>
+    <li style="margin-bottom: 5px;"> the nucleotide frequencies</li>
+    <li style="margin-bottom: 5px;"> the dinucleotide count matrix</li>
+    <li style="margin-bottom: 5px;"> the dinucleotide frequency matrix</li>
+    <li style="margin-bottom: 5px;"> the conditional frequency matrix</li>
+    </ul>
+  </li>
+  <p> All frequencies should be given to 4 decimal places; and you should use the nucleotide order A, C, G, T for the matrix rows and columns. </p>
+
+  <li style="margin-bottom: 15px;"> Run your program from <a href="hw1.html">homework 1</a> three times. In all three runs, sequence 1 should be <a href="data/hw1/hg38_chr10_90Mb_100Mb.fa">the 10-megabase <b>human</b> genomic region</a> used in homework 1. In the first run, sequence 2 should be the simulated equal frequency sequence  (from # 2 above). In the second run, sequence 2 should be the order-0 Markov model simulated sequence. In the third and final run, sequence 2 should be the order-1 Markov model simulated sequence. Your output for each run should be the same format as for homework 1 (with fasta file names added, per the template).</li>
+
+    <li style="margin-bottom: 15px;"> 
+
+        Answer the following questions after the simulated histogram, as shown in the template file:
+
+    </li>
+
+    <ol type="A">
+        <li style="margin-bottom: 15px;"> Given your results, what can you conclude about the statistical significance of matches between the orthologous mouse and human regions in homework 1?</li>
+
+        <li style="margin-bottom: 15px;"> Several interesting genes are located here. For example, the CPEB3 gene contains an intron-encoded self-cleaving ribozyme; Insulin Degrading Enzyme (IDE), an insulin protease has clinical significance for Alzheimer's disease. The HHEX gene encodes a member of the homeobox family of transcription factors, many of which are involved in developmental processes, etc. Using the longest match sequence(s) you found in Assignment 1, you should then try to figure out what biological feature they correspond to. You can do this by exploring the <a href="https://genome.ucsc.edu/"> UCSC browser</a> (hg38 and mm39). As a first step, it may be helpful to BLAST your longest match sequence(s) against the Human and Mouse genomes using <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastSearch&USER_FORMAT_DEFAULTS=on&SET_SAVED_SEARCH=true&PAGE=MegaBlast&PROGRAM=blastn&GAPCOSTS=0%200&MATCH_SCORES=1,-2&DATABASE=refseq_genomes&BLAST_PROGRAMS=megaBlast&MAX_NUM_SEQ=100&SHORT_QUERY_ADJUST=on&EXPECT=0.05&WORD_SIZE=28&REPEATS=566037&TEMPLATE_TYPE=0&TEMPLATE_LENGTH=0&FILTER=L&FILTER=m&EQ_MENU=Homo%20sapiens%20%28taxid%3A9606%29&EQ_MENU1=Mus%20musculus%20(taxid:10090)&NUM_ORG=2&PROG_DEFAULTS=on&SHOW_OVERVIEW=true&SHOW_LINKOUT=true&ALIGNMENT_VIEW=Pairwise&MASK_CHAR=2&MASK_COLOR=1&GET_SEQUENCE=true&NEW_VIEW=false&NCBI_GI=false&NUM_OVERVIEW=100&DESCRIPTIONS=100&ALIGNMENTS=100&FORMAT_OBJECT=Alignment&FORMAT_TYPE=HTML&SHOW_CDS_FEATURE=false
+">this link</a>
+        </li>
+        <li style="margin-bottom: 15px;"> Based on your histogram, how many UCEs are there in this region? Justify your answer. <b>Hint</b>: see this <a href="https://www.science.org/doi/10.1126/science.1098119">Science paper</a> on "ultraconserved elements" (UCEs; &gt;=200 bp exact match between mouse and human).</li>
+    </ol>
+
+    <li>You must turn in your results <i>and</i> your computer program (<b>only the program in #1</b> above -- you don't need to turn in your HW1 program again!), using <a href="data/hw2/hw2_template.txt">this file</a> as a template. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.</li>
+
+
+      
+  </ol>
+
+</body>
+</HTML>
