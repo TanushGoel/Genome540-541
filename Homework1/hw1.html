@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<title>Genome 540 Homework Assignment 1</title>
+</head>
+
+<body bgcolor="#ffffff">
+  <h3 align="center">Genome 540 Homework Assignment 1</h3>
+  <h3 align="center">(Winter Quarter 2023)</h3>
+  <h3 align="center">Due Sunday Jan. 15, 11:59 pm</h3>
+
+  <p><b> Late homework policy is described on course web page. </b></p>
+
+  <ol> 
+  <li style="margin-bottom: 10px;"> Download and begin reading <a href="http://dx.doi.org/10.1038/35057062"> <i>Initial sequencing and analysis of the human genome.</i> The GenomeInternational Sequencing Consortium. <i>Nature</i> 409, 860-921 (15 February 2001) </a>. (To print this out, I would recommend the pdf format which corresponds exactly to the printed version, rather than the html format.) For next week, read:
+    <ul> 
+    <li style="margin-bottom: 5px;"> Introduction and background (pp. 860-863, up to but not including "Strategic issues")</li>
+    <li style="margin-bottom: 5px;"> The section "Broad genomic landscape" (pp. 875-879, up to but not including "Repeat content of the human genome")</li>
+    <li style="margin-bottom: 5px;"> The section "Gene content of the human genome" (starting p. 892) up to but not including "Comparative proteome analysis" (p. 901).</li>
+    </ul>
+  </li>
+
+  <li style="margin-bottom: 10px;"> Write a program that implements the method described in Lecture 2 to find, for each suffix in the 'forward' strand of sequence 1, the length of the longest matching subsequence in sequence 2 (or its reverse complement). It should report a histogram of these lengths, and also the longest exactly matching subsequence between two sequences.  Specifically, your program should:
+    <ul>
+    <li style="margin-bottom: 5px;">Read two input files in "FASTA" format (i.e. having a header line which starts with the character "&gt;" and includes the sequence name, with the sequence itself following on subsequent lines), each of which contains one of the sequences to be compared. You can estimate the amount of space required in memory from the file size, allocate it, and then read in the files. Note that in each fasta file, sequence position numbers have been added to the start of only some of the lines. Each of these lines starts with a number, a space, and then that line's sequence. When loading the sequence you will need to handle this accordingly, and additionally report the number of non-alphabetic characters that were found (exclude header line characters from this count). Note also that some nucleotides may be lower-case; when storing the sequence in memory, be sure to convert these to upper case, so that the lexicographic sort will handle them correctly. As a data check, your program should count the number of bases of each type (i.e. A, C, T, G, or N) in each sequence. </li>
+    <li style="margin-bottom: 5px;">Use the described algorithm to find the longest matching subsequence in sequence 2 for each suffix in sequence 1. When you are looking for these, you need to allow for the fact that matching subsequences may occur on opposite strands in the two sequences. You must consider <i>both strands</i> of sequence 2 (i.e. both the sequence given in the FASTA file, which is sometimes called the 'forward' strand, and its reverse complement, which is sometimes called the 'reverse' strand), but you only need to consider the forward strand of sequence 1. The easiest way to do this is to create and store in memory a single sequence of length N + 2M + 3 (where the two input sequences have lengths N and M bases respectively) constructed by concatenating together sequence 1's forward strand and sequence 2's forward and reverse strands (each terminated by a null character to terminate the strings, so that the lexicographic sort does not read across the sequence boundaries), and then create a single list of pointers to each position in this merged sequence, which you then sort. For each suffix in the forward strand of sequence 1, find the longest matching subsequence in the forward or reverse strand of sequence 2.</li>
+    <li style="margin-bottom: 5px;">Construct a histogram which indicates, for each length, the number of sequence 1 suffices having that match length to sequence 2. The histogram template can be seen in the template file below. If you sum the counts over all lengths, the total should equal the length of sequence 1. When reporting the histogram, eliminate lengths that have counts of 0.</li>
+    <li style="margin-bottom: 5px;">Also report the longest subsequence present in both sequences. If there are several different perfectly repeated subsequences of the same maximum length, find all of them. If a longest subsequence is present multiple times in either sequence, please report <i>all locations</i> of the subsequence.</li>
+    </ul>
+  </li>
+      
+  <li style="margin-bottom: 10px;"> Using this program, you should then find the match length histogram and longest exactly matching sequences in orthologous 10-megabase regions in the <a href="data/hw1/hg38_chr10_90Mb_100Mb.fa">human</a> and <a href="data/hw1/mm39_chr19_35Mb_45Mb.fa"> mouse</a> genomes.</li>
+
+  <li style="margin-bottom: 10px;"> To test whether your program is working correctly, run it first on the test example indicated below (with two different bacterial genomes) to see whether you get the right answer. The FASTA files for the test examples can be found <a href="data/hw1/CP001872.fna">here</a>  and <a href="data/hw1/CP003913.fna">here</a>. The General feature format files are <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Mycoplasma_pneumoniae_M129_B7_uid176548/CP003913.gff">here</a>  and <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Mycoplasma_gallisepticum_R_high__uid43299/CP001872.gff">here</a>. In general, FASTA files for these and other bacterial genomes can be found by going to the <a href="http://www.ncbi.nlm.nih.gov/">NCBI web site</a> and following appropriate links. (On the NCBI site, the FASTA files containing the full genome sequences have the suffix .fna. To find the biological features, look in the 'General feature format' or 'Genbank format' files for the organisms (which have the suffix .gff and .gbk on the NCBI site) and find the annotated 'feature' in each genome that overlaps the matching segment you found. You don't need to write a program to do this -- you can just read the .gff or .gbk file on the website.) .gff files are also searchable by 'bedtools intersect -a {your.gff} -b {region_of_interest.bed}'.</li>
+
+  <li>You must turn in your results <i>and</i> your computer program, using <a href="data/hw1/hw1_template.txt">this file</a> as a template. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.</li>
+  </ol>
+
+  <h3>Details:</h3>
+
+  <p><b>Fasta:</b> put the name of the fasta file, along with the first line.</p>
+
+  <p><b>Extraneous characters:</b> put the non-alphabetic character count for this fasta file (excluding the header line).</p>
+
+  <p><b>Nucleotide histogram:</b> count the total number of bases ("*") and the number of times each specific base occurs.  <i>i.e.</i>:
+  <pre>
+  *=1012800
+  A=349623
+  C=159237
+  G=159490
+  T=344450
+  N=0
+  </pre>
+  </p>
+
+  <p><b>Match Length Histogram:</b> report a histogram which indicates, for each length, the number of sequence 1 suffices having that match length to sequence 2. <i>i.e.</i>:
+  <pre>
+  Match Length Histogram:
+  1 match count
+  2 match count
+  3 match count
+  .
+  .
+  list all the match length counts
+  (only first/last 3 shown here)
+  .
+  .
+  20 match count
+  21 match count
+  22 match count
+  </pre>
+  </p>
+
+  <p><b>Description (for the longest match):</b> Put a short identification of the shared DNA subsequence, for instance: "This DNA sequence is the first 20 bases of an RNA polymerase gene." </p>
+
+  <p><b>Position (for the longest match):</b> Put the location of the matching subsequence within the input sequence here (rather than the absolute location in the given genome).  The location should be the index of the DNA base in the sequence that is <i>closest to the beginning of the forward strand</i>. Use a coordinate system starting at 1 rather than 0.
+  For example, if the two chromosomal strands are:
+  <pre>
+  			 5'-ACTGA-3'
+  			 3'-TGACT-5'
+  </pre>
+  and you found the subsequence TCA on the reverse strand to be the longest  match to the other sequence, then the location should be reported as 3.  If instead you found CTG on the forward strand, then the location should be reported as 2.
+  </p>
+
+
