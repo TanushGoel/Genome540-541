@@ -1,0 +1,97 @@
+<HTML>
+
+<head>
+<title> Genome 540 Homework Assignment 5 </title>
+</head>
+
+<body BGCOLOR="#FFFFFF" >
+   <h3 align="center">Genome 540 Homework Assignment 5</h3>
+   <h3 align="center">(Winter Quarter 2023)</h3>
+   <h3 align="center">Due Sunday Feb 12, 11:59pm</h3>
+
+   <ol>
+
+   <li style="margin-bottom: 15px;">
+      Write a program that reads in three input protein sequences (from a FASTA file), together with a score matrix, creates the edit graph for the three sequences, and outputs this graph in a file in the appropriate input format for the WDAG program you wrote in part 1 of homework 4. Recall that, in the edit graph, vertices correspond to triples (i,j,k) where 0 <= i <= n1, 0 <= j <= n2, and 0 <= k <= n3, where n1, n2 and n3 are the lengths of the three sequences. There is an edge from (i,j,k) to (i*,j*,k*) whenever i* = i or i+1, j* = j or j+1, and k* = k or k+1, and at least one of the equalities i*=i, j*=j, and k*=k is false. The label you should attach to an edge is the corresponding column of aligned residues & gap characters -- except that you can write it horizontally instead of vertically. For example, the label associated to the edge from (10,37,5) to (11,37,6) would be V-C if V is the 11th residue in the first sequence and C is the 6th residue in the third sequence. Note that different edges in the graph can have the same label.
+
+      <p> The weights attached to an edge should be the 'sum of pairs' weights. Specifically, each edge is labelled by 3 characters, say x_1, x_2, x_3, which may be residues or gap characters. There are 3 different unordered pairs of these characters, namely (x_1, x_2), (x_1, x_3) and (x_2, x_3). The weight attached to the edge is then the sum of the 3 pair weights, where the weight of (x_i, x_j) is</p>
+      <ul>
+      <li> the corresponding score matrix entry if x_i and x_j are both residues
+      <li> the gap penalty if one of  x_i and x_j is a residue, and the other is a gap character
+      <li> 0 if both  x_i and x_j are gap characters
+      </ul>
+   </li>
+
+   <li> Run your program to produce an output file giving the edit graph for the following three sequences:
+
+<pre>
+
+>sp|P01308|INS_HUMAN Insulin OS=Homo sapiens GN=INS PE=1 SV=1
+MALWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAEDLQVGQVELGGGPGAGSLQPLALEGSLQKRGIVEQCCTSICSLYQLENYCN
+
+>tr|Q25C78|Q25C78_BUBBU Insulin (Fragment) OS=Bubalus bubalis OX=89462 GN=bpi PE=2 SV=1
+FVNQHLCGSHLVEALYLVCGERGFFYTPKARREVEGPQVGALELAGGPGAGGLEGPPQKRGIVEQCCASVCSLYQLENYCN
+
+>tr|F6QRS1|F6QRS1_XENTR Insulin OS=Xenopus tropicalis OX=8364 GN=fbxw8 PE=3 SV=3
+MLPLSSIMALWMQCLPLVLVLLFSTPNTEALANQHLCGSHLVEALYLVCGDRGFFYYPKIKRDIEQAMVNGPQDNELDGMQLQPQEYQKMKRGIVEQCCHSTCSLFQLESYCN
+
+</pre>
+
+using the BLOSUM62 score matrix for the pairwise scores:
+<pre>
+   A  R  N  D  C  Q  E  G  H  I  L  K  M  F  P  S  T  W  Y  V  B  Z  X  *
+A  4 -1 -2 -2  0 -1 -1  0 -2 -1 -1 -1 -1 -2 -1  1  0 -3 -2  0 -2 -1  0 -4
+R -1  5  0 -2 -3  1  0 -2  0 -3 -2  2 -1 -3 -2 -1 -1 -3 -2 -3 -1  0 -1 -4
+N -2  0  6  1 -3  0  0  0  1 -3 -3  0 -2 -3 -2  1  0 -4 -2 -3  3  0 -1 -4
+D -2 -2  1  6 -3  0  2 -1 -1 -3 -4 -1 -3 -3 -1  0 -1 -4 -3 -3  4  1 -1 -4
+C  0 -3 -3 -3  9 -3 -4 -3 -3 -1 -1 -3 -1 -2 -3 -1 -1 -2 -2 -1 -3 -3 -2 -4
+Q -1  1  0  0 -3  5  2 -2  0 -3 -2  1  0 -3 -1  0 -1 -2 -1 -2  0  3 -1 -4
+E -1  0  0  2 -4  2  5 -2  0 -3 -3  1 -2 -3 -1  0 -1 -3 -2 -2  1  4 -1 -4
+G  0 -2  0 -1 -3 -2 -2  6 -2 -4 -4 -2 -3 -3 -2  0 -2 -2 -3 -3 -1 -2 -1 -4
+H -2  0  1 -1 -3  0  0 -2  8 -3 -3 -1 -2 -1 -2 -1 -2 -2  2 -3  0  0 -1 -4
+I -1 -3 -3 -3 -1 -3 -3 -4 -3  4  2 -3  1  0 -3 -2 -1 -3 -1  3 -3 -3 -1 -4
+L -1 -2 -3 -4 -1 -2 -3 -4 -3  2  4 -2  2  0 -3 -2 -1 -2 -1  1 -4 -3 -1 -4
+K -1  2  0 -1 -3  1  1 -2 -1 -3 -2  5 -1 -3 -1  0 -1 -3 -2 -2  0  1 -1 -4
+M -1 -1 -2 -3 -1  0 -2 -3 -2  1  2 -1  5  0 -2 -1 -1 -1 -1  1 -3 -1 -1 -4
+F -2 -3 -3 -3 -2 -3 -3 -3 -1  0  0 -3  0  6 -4 -2 -2  1  3 -1 -3 -3 -1 -4
+P -1 -2 -2 -1 -3 -1 -1 -2 -2 -3 -3 -1 -2 -4  7 -1 -1 -4 -3 -2 -2 -1 -2 -4
+S  1 -1  1  0 -1  0  0  0 -1 -2 -2  0 -1 -2 -1  4  1 -3 -2 -2  0  0  0 -4
+T  0 -1  0 -1 -1 -1 -1 -2 -2 -1 -1 -1 -1 -2 -1  1  5 -2 -2  0 -1 -1  0 -4
+W -3 -3 -4 -4 -2 -2 -3 -2 -2 -3 -2 -3 -1  1 -4 -3 -2 11  2 -3 -4 -3 -2 -4
+Y -2 -2 -2 -3 -2 -1 -2 -3  2 -1 -1 -2 -1  3 -3 -2 -2  2  7 -1 -3 -2 -1 -4
+V  0 -3 -3 -3 -1 -2 -2 -3 -3  3  1 -2  1 -1 -2 -2  0 -3 -1  4 -3 -2 -1 -4
+B -2 -1  3  4 -3  0  1 -1  0 -3 -4  0 -3 -3 -2  0 -1 -4 -3 -3  4  1 -1 -4
+Z -1  0  0  1 -3  3  4 -2  0 -3 -3  1 -1 -3 -1  0 -1 -3 -2 -2  1  4 -1 -4
+X  0 -1 -1 -1 -2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -2  0  0 -2 -1 -1 -1 -1 -1 -4
+* -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4  1
+
+Gap penalty: -6
+</pre>
+
+      <p>Then run your WDAG program from homework #4 [you may have to modify it] on this file to produce a highest scoring path (and its score) giving a highest-scoring alignment of the three sequences. You should adjust the program output such that each of the edge labels (corresponding to an aligned column of residues) appears on a separate line.</p>
+
+      <p><b>Your program should output the following:</b>
+      <ol>
+         <li> The maximum path score
+         <li> A list of all edge weights (sorted alphabetically by edge name)
+         <li> A histogram of edge counts (again, sorted alphabetically by edge name)
+         <li> The highest-scoring alignment, formatted vertically (as described above)
+      </ol>
+      </p>
+   </li>
+
+   <li>You must turn in your results <i>and</i> your computer program, using <a href="data/hw5/hw5_template.txt">this file</a> as a template. Solutions to this assignment from previous years (in the required format) are also provided below. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.
+      <b>
+      <p><a href="http://bozeman.genome.washington.edu/compbio/mbt599_2013/homework3.html">HW5 from 2013</a>
+      <p><a href="http://bozeman.genome.washington.edu/compbio/mbt599_2012/homework3.html">HW5 from 2012</a>
+
+      <p><a href="data/hw5/MSA_2013.example.results.txt">Answer to 2013 HW5</a> [in the current format]
+      <p><a href="data/hw5/MSA_2012.example.results.txt">Answer to 2012 HW5</a> [in the current format]
+      </b>
+   </li>
+
+   </ol>
+
+</body>
+</html>
+
