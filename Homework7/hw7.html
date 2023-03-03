@@ -1,0 +1,78 @@
+
+<!-- saved from url=(0069)http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/hw7.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> Genome 540 Homework Assignment 7 </title>
+<script id="transcript-settings" data-tailwind="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/tailwind.js" data-daisy="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/daisy.min.css" data-loading="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/images/loading.gif" data-start-hidden="true" data-start-light="" data-autoanswer="" data-snapshot-keybind="shift+ctrl+1" data-search-keybind="shift+ctrl+2" data-search-ai-keybind="shift+ctrl+3"></script></head>
+
+<body bgcolor="#FFFFFF">
+    <h3 align="center">Genome 540 Homework Assignment 7</h3>
+    <h3 align="center">(Winter Quarter 2023)</h3>
+    <h3 align="center">Due Sunday Feb 26, 11:59pm</h3>
+
+<ul>
+
+    <li style="margin-bottom: 15px;"> In this assignment, you will create a randomized data set corresponding to the data set from HW6 and (using a new scoring scheme which you compute) run the maximal D-segment algorithm on both the randomized and the real data.
+    <p>
+    </p><ul>
+      <li style="margin-bottom: 15px;"> First, use the read-start counts you found for the two types of segments in HW6 to determine <b> background</b> frequencies (based on the <b> sums </b> of the counts of the "Non-Elevateed CN segments" and the "Elevated CN segments") and <b> target</b> frequencies (based on the "Elevated CN segments" only) for the 4 possible read start values (0, 1, 2, &gt;= 3).  Before computing these frequencies, you should first adjust the count for 0 read starts in background segments (only!) by subtracting 8,422,401. This is the number of N's in the reference chromosome sequence, and should be eliminated because read alignments cannot start at an 'N'. 
+
+        </li><li style="margin-bottom: 15px;">
+          Create a scoring scheme (for each count value 0, 1, 2, 3) based on the background and target frequencies, using LLRs with base 2 logarithms. The reason for using such scores rather than the Poisson-based scores used in HW6 is that the count values in the real data do not fit a Poisson very well, probably because of the fact that read libraries typically involve an amplification step that violates the independence assumption necessary for the Poisson. 
+        </li>
+
+	<li style="margin-bottom: 15px;"> Write a program that uses the background frequencies above to simulate a sequence of read start counts. The length of this sequence should be the total length of the chromosome used in HW6 minus the number of N's (as given above). 
+        <p>The following pseudocode gives one approach to creating this sequence:
+
+</p><pre>N = length of sequence to be simulated
+bkgd[r] = frequency of background sites with r read starts (r = 0, 1, 2, 3).
+for each i = 1...N
+    x = random number between 0 and 1 (uniform distribution)
+    if x &lt; bkgd[0]
+        sim_seq[i] = 0
+    else if x &lt; bkgd[0] + bkgd[1]
+        sim_seq[i] = 1
+    else if x &lt; bkgd[0] + bkgd[1] + bkgd[2] 
+        sim_seq[i] = 2
+    else 
+        sim_seq[i] = 3
+</pre>
+
+
+        </li>
+
+        <li style="margin-bottom: 15px;"> 
+            Run your maximal D-segment algorithm on the simulated count sequence with S = -D = 5 and the above scoring scheme. Report a list of pairs, giving for each integer score s = 5, ... 30 the number N_seg(s) of D-segments with score &gt;= s. 
+        </li>
+
+        <li style="margin-bottom: 15px;"> 
+            Run your maximal D-segment algorithm on the 'real data' sequence of read starts used in assignment 6 with the <b>above</b> S and D values, scoring scheme, and list output. 
+        </li>
+
+        <li style="margin-bottom: 15px;"> Generate a list of ratios from the simulated data output, giving for each s = 5, ... 29, the ratio N_seg(s) / N_seg(s + 1) (rounded to 2 decimal places).
+
+        <p> If there is a 0 in the denominator of your ratio (for cases where there were no D-segments for s), print -1. 
+        </p></li>
+
+        <li style="margin-bottom: 15px;"> 
+            As discussed in lecture, Karlin-Altschul theory predicts that, for LLR scores using logarithmic base b, the number of D-segments with scores &gt;= s should be proportional to b^-s (b to the power -s; this is the reciprocal of the corresponding LR). Since your scores used logarithmic base 2, if N_seg(s1) is the number of D-segments found with score value &gt;= s1, and N_seg(s2) is the number of D-segments found with score value &gt;= s2, then the ratio N_seg(s1)/N_seg(s2) should be approximately equal to 2^(s2 - s1). Consider the following questions:
+        <ul>
+            <li style="margin-bottom: 2px;"> Does this relationship appear to be true for the simulated data?
+            </li><li style="margin-bottom: 2px;"> Is it true for the real data?
+            </li><li style="margin-bottom: 2px;"> Would you expect it to be true for the real data? 
+            </li><li style="margin-bottom: 2px;"> What score threshold is a reasonable one to use for the real data, to ensure a very low false positive rate?
+        </li></ul>
+	</li><li style="margin-bottom: 15px;"> Your output should include: the background and target frequencies you found in the first step above (rounded to 4 decimal places) and the scoring scheme you derived from them (rounded to 4 decimal places), as well as the lists of pairs for the simulated and real data from running your program and your answers to the above questions. See the <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw7/hw7_template.txt">template file</a> for formatting details.
+        </li>
+
+    </ul>
+    </li>
+    
+    <li style="margin-bottom: 15px;">
+        Use the same template structure for your output on the actual file. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.
+    </li>
+
+</ul>
+
+
+
+</body></html>
