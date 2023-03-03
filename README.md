@@ -13,6 +13,10 @@ Homework 4: Dynamic Programming, Weighted Directed Acyclic Graphs (WDAG)
 
 Homework 5: Topological Sort, Network Optimization, Local Sequence Alignment, BLOSUM62
 
-Homework 6: D-segment Algorithm, Poisson Distributions, Heterozygous Duplication
+Homework 6: D-segment Algorithm, Poisson Distributions
 
-Homework 7: Hidden Markov Models (HMM), Karlin-Altschul Theory
+Homework 7: Next-Generation Sequencing (NGS), Karlin-Altschul Theory
+
+Homework 8: Hidden Markov Models (HMM), Parameter Estimation (Viterbi & EM/Baum-Welch Training)
+
+Homework 9: Evolutionarily Conserved Segments (ECS), Multiple Alignment, Putative Neutral/Functional Sequences
