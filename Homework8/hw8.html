@@ -1,0 +1,58 @@
+
+<!-- saved from url=(0069)http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/hw8.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> Genome 540 Homework Assignment 8 </title>
+<script id="transcript-settings" data-tailwind="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/tailwind.js" data-daisy="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/daisy.min.css" data-loading="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/images/loading.gif" data-start-hidden="true" data-start-light="" data-autoanswer="" data-autoaianswer="" data-snapshot-keybind="shift+ctrl+1" data-search-keybind="shift+ctrl+2" data-search-ai-keybind="shift+ctrl+3"></script></head>
+
+<body bgcolor="#FFFFFF">
+    <h3 align="center">Genome 540 Homework Assignment 8</h3>
+    <h3 align="center">(Winter Quarter 2023)</h3>
+    <h3 align="center">Due Sunday Mar 5, 11:59pm</h3>
+
+<ul>
+<li style="margin-bottom: 15px;"> Write a program that implements a 2-state HMM for detecting G+C rich regions in <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw8/Pyrococcus_horikoshii.fasta">Pyrococcus horikoshii</a> (<a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw8/GCA_000011105.1_ASM1110v1_genomic.gbff">Genbank file</a>, <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw8/GCA_000011105.1_ASM1110v1_genomic.gff">GFF file</a>).
+   	Conceptually, state 1 will correspond to the 'A+T rich' state, whereas state 2 will correspond to the G+C-rich state. Specifically: 
+    <ul>
+    <li style="margin-bottom: 15px;">  The starting parameter values (adapted from Klein et al (2002), PNAS 99: 7542-47) should be as follows:
+        <ul> 
+        <li style="margin-bottom: 5px;"> Transition probabilities a_ij are a_11 = .999, a_12 = .001, a_21 = .01, a_22 = .99
+        </li><li style="margin-bottom: 5px;"> Initiation probabilities for each state (i.e. the transition probabilities from the 'begin' state into state 1 or 2) should be .996 for state 1, and .004 for state 2
+        </li><li style="margin-bottom: 5px;"> Emission probabilities are 
+        <ul>
+        <li> e_A = e_T = .30, e_G = e_C = .20 for state 1;
+        </li><li> e_A = e_T = .15, e_G = e_C = .35 for state 2.
+        </li></ul>
+        </li></ul>
+    </li>
+    
+    <li style="margin-bottom: 15px;"> Use EM (Baum-Welch) training as described in class to find improved parameter estimates. You should not hold any parameter values fixed or set to be equivalent -- allow all of them to change with each iteration.
+        <ul>
+        <li> In each iteration, compute: 
+        <ul>
+        <li> the log-likelihood (to the base e, i.e., the natural log) of the sequence.
+        </li><li> new initiation probabilities to be used in the next iteration.
+        </li><li> new transition probabilities to be used in the next iteration.
+        </li><li> new emission probabilities to be used in the next iteration.
+        </li></ul>
+        </li></ul>
+    </li>
+    
+    <p>Run the program until the increase in log-likelihood between successive iterations becomes less than 0.1. You should check that the log-likelihood increases with each iteration -- if it doesn't, something is wrong with your program. My program took less than 250 iterations to converge.
+    </p></ul>
+
+
+</li><li style="margin-bottom: 15px;"> Your output should provide:
+    <ul>
+    <li style="margin-bottom: 5px;"> the name and first line of the .fna file
+    </li><li style="margin-bottom: 5px;"> the number of iterations until convergence
+    </li><li style="margin-bottom: 5px;"> the final log-likelihood
+    </li><li style="margin-bottom: 5px;"> the final initial, emission, and transition probabilities -- please output these in scientific notation, to four significant digits (i.e., 9.000e-1)
+    </li></ul>
+</li>
+
+<li style="margin-bottom: 15px;">You must turn in your results <i>and</i> your computer program, using <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw8/hw8_template.txt">this template file</a>. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.
+</li></ul>
+
+
+
+</body></html>
