@@ -11,60 +11,62 @@ Background frequencies:
 >=3=0.0010
 
 Target frequencies:
-0=0.7555
+0=0.7554
 1=0.1882
 2=0.0301
 >=3=0.0263
 
 Scoring scheme:
-0=-0.2157
-1=0.7402
-2=1.7444
+0=-0.2158
+1=0.7403
+2=1.7447
+>=3=4.6492
+
 Real data:
-5 71549
-6 39372
-7 22503
-8 13908
-9 9245
-10 6567
-11 4943
-12 3965
-13 3334
-14 2859
+5 71547
+6 39373
+7 22504
+8 13939
+9 9250
+10 6568
+11 4945
+12 3966
+13 3335
+14 2860
 15 2512
-16 2236
-17 2067
+16 2237
+17 2068
 18 1897
 19 1754
 20 1625
 21 1536
-22 1458
+22 1459
 23 1374
-24 1310
-25 1238
-26 1177
-27 1127
-28 1082
-29 1026
-30 984
+24 1309
+25 1237
+26 1176
+27 1126
+28 1081
+29 1025
+30 983
 
 Simulated data:
-5 79376
-6 38766
-7 18369
-8 8929
-9 4517
-10 2278
-11 1132
-12 564
-13 304
-14 147
-15 65
-16 26
-17 15
-18 8
+5 79982
+6 39204
+7 18530
+8 9117
+9 4618
+10 2342
+11 1125
+12 559
+13 291
+14 156
+15 75
+16 34
+17 17
+18 9
 19 2
-20 1
+20 2
 21 1
 22 0
 23 0
@@ -76,50 +78,23 @@ Simulated data:
 29 0
 30 0
 
-Ratios of real data:
-N_seg(5)/N_seg(6) 1.82
-N_seg(6)/N_seg(7) 1.75
-N_seg(7)/N_seg(8) 1.62
-N_seg(8)/N_seg(9) 1.50
-N_seg(9)/N_seg(10) 1.41
-N_seg(10)/N_seg(11) 1.33
-N_seg(11)/N_seg(12) 1.25
-N_seg(12)/N_seg(13) 1.19
-N_seg(13)/N_seg(14) 1.17
-N_seg(14)/N_seg(15) 1.14
-N_seg(15)/N_seg(16) 1.12
-N_seg(16)/N_seg(17) 1.08
-N_seg(17)/N_seg(18) 1.09
-N_seg(18)/N_seg(19) 1.08
-N_seg(19)/N_seg(20) 1.08
-N_seg(20)/N_seg(21) 1.06
-N_seg(21)/N_seg(22) 1.05
-N_seg(22)/N_seg(23) 1.06
-N_seg(23)/N_seg(24) 1.05
-N_seg(24)/N_seg(25) 1.06
-N_seg(25)/N_seg(26) 1.05
-N_seg(26)/N_seg(27) 1.04
-N_seg(27)/N_seg(28) 1.04
-N_seg(28)/N_seg(29) 1.05
-N_seg(29)/N_seg(30) 1.04
-
 Ratios of simulated data:
-N_seg(5)/N_seg(6) 2.05
-N_seg(6)/N_seg(7) 2.11
-N_seg(7)/N_seg(8) 2.06
-N_seg(8)/N_seg(9) 1.98
-N_seg(9)/N_seg(10) 1.98
-N_seg(10)/N_seg(11) 2.01
+N_seg(5)/N_seg(6) 2.04
+N_seg(6)/N_seg(7) 2.12
+N_seg(7)/N_seg(8) 2.03
+N_seg(8)/N_seg(9) 1.97
+N_seg(9)/N_seg(10) 1.97
+N_seg(10)/N_seg(11) 2.08
 N_seg(11)/N_seg(12) 2.01
-N_seg(12)/N_seg(13) 1.86
-N_seg(13)/N_seg(14) 2.07
-N_seg(14)/N_seg(15) 2.26
-N_seg(15)/N_seg(16) 2.50
-N_seg(16)/N_seg(17) 1.73
-N_seg(17)/N_seg(18) 1.88
-N_seg(18)/N_seg(19) 4.00
-N_seg(19)/N_seg(20) 2.00
-N_seg(20)/N_seg(21) 1.00
+N_seg(12)/N_seg(13) 1.92
+N_seg(13)/N_seg(14) 1.87
+N_seg(14)/N_seg(15) 2.08
+N_seg(15)/N_seg(16) 2.21
+N_seg(16)/N_seg(17) 2.00
+N_seg(17)/N_seg(18) 1.89
+N_seg(18)/N_seg(19) 4.50
+N_seg(19)/N_seg(20) 1.00
+N_seg(20)/N_seg(21) 2.00
 N_seg(21)/N_seg(22) -1.00
 N_seg(22)/N_seg(23) -1.00
 N_seg(23)/N_seg(24) -1.00
@@ -143,7 +118,7 @@ Would you expect it to be true for the real data?
 No
 
 What score threshold is a reasonable one to use for the real data, to ensure a very low false positive rate?
-I would say D=-100, S=100 is a pretty reasonable score threshold. This threshold results in slightly more than 100 D-segments, thus making the false positive rate quite low.
+I would say D=-17.5, S=17.5 is a pretty reasonable score threshold. This threshold results in ~10 segments from the simulated sequence and 1500 segments from the real data. This makes us very certain that the segments with this score are unlikely to have occurred randomly because only real segments score that high.
 
 
 Program:
@@ -158,10 +133,36 @@ def read_rc(filename):
     return np.loadtxt(filename, usecols=(2,))
 
 true_read_count = read_rc(read_count_path)
-true_read_count = np.array([3 if x > 3 else x for x in true_read_count], dtype="int16")
 
 
-score_scheme, D, S = {0: -0.1077, 1: 0.4772, 2: 1.0622, 3: 1.6748}, -20.0, 20.0 # from hw 6
+from scipy.stats import poisson
+
+N_CORRECTION = 8422401 # number of Ns in chr16
+
+def create_scoring_scheme_poisson(read_counts):
+
+    adj_chrom_size = read_counts.shape[0] - N_CORRECTION
+    adj_mean_count = np.sum(read_counts) / adj_chrom_size
+
+    mu_0 = adj_mean_count
+    mu_1 = adj_mean_count * 1.5
+
+    x = np.arange(4)
+    y_0 = poisson.pmf(mu=mu_0, k=x)
+    y_1 = poisson.pmf(mu=mu_1, k=x)
+
+    y_0[-1] += 1.0 - np.sum(y_0)
+    y_1[-1] += 1.0 - np.sum(y_1)
+
+    weights = np.log2(y_1 / y_0)
+
+    return dict(zip([0,1,2,3,4], weights))
+
+score_scheme = create_scoring_scheme_poisson(true_read_count)
+D, S = -20.0, 20.0
+
+
+true_read_count = np.array([min(x, 3) for x in true_read_count], dtype="int16")
 
 def find_dsegs(read_counts, scoring_scheme, d, s):
 
@@ -182,8 +183,6 @@ def find_dsegs(read_counts, scoring_scheme, d, s):
 elevated = list(find_dsegs(true_read_count, score_scheme, D, S))
 
 
-N_CORRECTION = 8422401 # number of Ns in chr16
-
 def calc_y_0(read_counts):
 
     chrom_size = read_counts.shape[0]
@@ -195,9 +194,6 @@ def calc_y_0(read_counts):
 back_freq = calc_y_0(true_read_count)
 
 
-N_CORRECTION = 8422401 # number of Ns in chr16
-
-
 def calc_y_1(read_counts, elev):
 
     elev_size = 0
@@ -206,7 +202,7 @@ def calc_y_1(read_counts, elev):
         elev_seq = read_counts[elevated_seq[0]: elevated_seq[1]+1]
         y_1 += np.bincount(elev_seq, minlength=4)
         elev_size += elev_seq.shape[0]
-    
+
     return y_1 / elev_size
 
 elev_freq = calc_y_1(true_read_count, elevated)
@@ -262,16 +258,6 @@ def display_dseg_stats(dsegs1, dsegs2):
     print("\nSimulated data:")
     for s in range(5, 31):
         print(s, count_by_score(dsegs2, s))
-
-    print("\nRatios of real data:")
-    for s in range(5, 30):
-        denom = count_by_score(dsegs1, s+1)
-        if denom == 0:
-            ratio = -1
-        else:
-            ratio = count_by_score(dsegs1, s) / denom
-
-        print(f"N_seg({s})/N_seg({s+1}) {ratio:.2f}")
 
     print("\nRatios of simulated data:")
     for s in range(5, 30):
