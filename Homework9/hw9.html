@@ -1,0 +1,57 @@
+
+<!-- saved from url=(0069)http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/hw9.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> Genome 540 Homework Assignment 9 </title>
+<script id="transcript-settings" data-tailwind="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/tailwind.js" data-daisy="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/daisy.min.css" data-loading="chrome-extension://klknhfgkblobpfimidmhkclikdalnoke/images/loading.gif" data-start-hidden="true" data-start-light="" data-autoanswer="" data-autoaianswer="" data-snapshot-keybind="shift+ctrl+1" data-search-keybind="shift+ctrl+2" data-search-ai-keybind="shift+ctrl+3"></script></head>
+
+<body bgcolor="#FFFFFF">
+    <h3 align="center">Genome 540 Homework Assignment 9</h3>
+    <h3 align="center">(Winter Quarter 2023)</h3>
+    <h3 align="center">Due Sunday Mar 12, 11:59pm</h3>
+
+<ul>
+<li style="margin-bottom: 15px;"> Write a program that implements an HMM for identifying evolutionarily conserved segments from a multiple alignment of human, dog and mouse genome sequences. Specifically:
+    <ul>
+    <li style="margin-bottom: 5px;"> The HMM has two states: a "neutral", fast-evolving state (state 1) and a "conserved", slow-evolving state (state 2). </li>
+    <li style="margin-bottom: 5px;"> The emitted symbols for each state are multiple alignment columns (<i>e.g.</i> "AAA" or "A-T"). Columns containing substitutions and gaps have a higher probability of being emitted by the neutral state than the conserved state.</li>
+    <li style="margin-bottom: 5px;"> Define emission probabilities for each state as follows:
+        <ul>
+        <li style="margin-bottom: 2px;"> Set neutral state (state 1) emission probabilities to alignment column frequencies from putative neutral sequences. To determine these frequencies use <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw9/STATE1_anc_rep_counts.txt">this list</a> of alignment column counts from a large set of ancient repeat sequences. In this file base1 is human, the base2 is dog, and base3 is mouse. </li>
+        <li style="margin-bottom: 2px;"> Set conserved (state 2) emission probabilities to alignment column frequencies from putative functional sites. Use <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw9/STATE2_codon1_2_counts.txt">this list</a> of alignment column counts from a large number of 1st and 2nd codon positions. The base ordering in this file is the same as for the ancient repeat counts described above. </li>
+        </ul>
+    </li>
+    <li style="margin-bottom: 5px;"> Use the following transition probabilities:
+        <ul>
+        <li style="margin-bottom: 2px;"> a<sub>11</sub> = 0.95, a<sub>12</sub> = 0.05
+        </li><li style="margin-bottom: 2px;"> a<sub>21</sub> = 0.10, a<sub>22</sub> = 0.90
+        </li></ul>
+    </li>
+    <li style="margin-bottom: 5px;"> Initiation probabilities should be 0.95 for state 1 and 0.05 for state2.</li>
+    </ul>
+</li>
+
+<li style="margin-bottom: 15px;"> 
+    Use your HMM to determine the Viterbi parse for <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw9/ENm010.aln">this multiple alignment</a> of dog and mouse to human <a href="http://www.genome.gov/10005107"> ENCODE</a> region <a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg18&amp;lastVirtModeType=default&amp;lastVirtModeExtraState=&amp;virtModeType=default&amp;virtMode=0&amp;nonVirtPosition=&amp;position=chr7%3A26699793-27199792&amp;hgsid=713371499_q7tTFFlPxp1i80BIxXQQzgAzUnta"> ENm010</a> on chromosome 7. Gaps have been removed from the human sequence so that it is simple to determine the human genome coordinate of each alignment column. The alignment is broken into many small blocks. Within each block, the first line is the human sequence (labelled hg18), the second line is the dog sequence (labelled canFam2) and the third line is the mouse sequence (labelled mm9). 'N' characters have been replaced with 'A's to avoid having to deal with ambiguous bases.
+</li>
+
+<li style="margin-bottom: 15px;"> Your output should provide: 
+    <ul>
+    <li style="margin-bottom: 5px;"> The emission probabilities for the two states of your HMM reported to 5 decimal places (in addition to the other parameters that were provided for you, i.e. initial probabilities and transition probabilities). Emission probabilities should be reported in alphabetical order (e.g. 1,A--; 1,A-A; 1,A-C;...; 1,TTT; 2,A--;...). </li>
+    <li style="margin-bottom: 5px;"> Histograms describing the distribution of conserved/neutral states and segments in the Viterbi parse. </li>
+    <li style="margin-bottom: 5px;"> The coordinates of the <b>10 longest conserved (state 2) segments</b> from the Viterbi parse. Make your output coordinates relative to the start of the chromosome by taking into account the start position of the alignment (position 26,924,045 on chromosome 7). This will make it possible to look up your segments in a genome browser. For example, a segment starting at the 10th alignment column would have the chromosomal start coordinate 26,924,055).</li>
+    <li style="margin-bottom: 5px;"> Give a brief annotation describing the genomic features that overlap your <b>5 longest</b> conserved segments (<i>e.g.</i> an exon from a particular gene). You can do this by finding your segments in the UCSC genome browser.</li>
+    </ul>
+</li>
+
+<li style="margin-bottom: 15px;">
+    As a test case, try your code on this truncated alignment of the <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw9/ENm006_short.aln">ENm006 region</a>. The 10 longest conserved segments in this test case should be: (152824343,152825071), (152871156,152871765), (152878440,152878808), (152889710,152890061), (152868885,152869199), (152890189,152890483), (152870540,152870811), (152876661,152876913), (152781311,152781545), (152874832,152875057)
+</li>
+
+<li style="margin-bottom: 15px;">
+    You must turn in your results <i>and</i> your computer program, using <a href="http://bozeman.mbt.washington.edu/compbio/mbt599/assignments/data/hw9/hw9_template.txt">this template file</a>. <b>Please put everything into ONE file - do not send an archive of files or a tar file.</b> After creating a plain text file (NOT a word processing document file) in this format, compress it (using either Unix compress, or gzip -- if you don't have access to either of these programs, let us know), and send it as an attachment to both Phil at phg@uw.edu and Conor at concamp@uw.edu.
+</li>
+</ul>
+
+
+
+</body></html>
