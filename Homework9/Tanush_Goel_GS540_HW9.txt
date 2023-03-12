@@ -1,0 +1,430 @@
+Assignment: GS540 HW9
+Name: Tanush Goel
+Email: tgoel02@uw.edu
+Language: Python
+Runtime: 3 seconds
+
+State Histogram:
+1=221617
+2=54130
+
+Segment Histogram:
+1=912
+2=911
+
+Initial State Probabilities:
+1=0.95000
+2=0.05000
+
+Transition Probabilities:
+1,1=0.95000
+1,2=0.05000
+2,1=0.10000
+2,2=0.90000
+
+Emission Probabilities:
+1,A--=0.15403
+1,A-A=0.00725
+1,A-C=0.00633
+1,A-G=0.02133
+1,A-T=0.00412
+1,AA-=0.01285
+1,AAA=0.00270
+1,AAC=0.00150
+1,AAG=0.00253
+1,AAT=0.00045
+1,AC-=0.01318
+1,ACA=0.00171
+1,ACC=0.00333
+1,ACG=0.00280
+1,ACT=0.00049
+1,AG-=0.03189
+1,AGA=0.00211
+1,AGC=0.00198
+1,AGG=0.01328
+1,AGT=0.00111
+1,AT-=0.01146
+1,ATA=0.00086
+1,ATC=0.00085
+1,ATG=0.00235
+1,ATT=0.00059
+1,C--=0.00335
+1,C-A=0.00864
+1,C-C=0.00263
+1,C-G=0.00132
+1,C-T=0.00036
+1,CA-=0.00417
+1,CAA=0.08468
+1,CAC=0.01749
+1,CAG=0.00379
+1,CAT=0.00233
+1,CC-=0.00203
+1,CCA=0.02829
+1,CCC=0.01342
+1,CCG=0.00181
+1,CCT=0.00101
+1,CG-=0.00127
+1,CGA=0.00689
+1,CGC=0.00216
+1,CGG=0.00203
+1,CGT=0.00028
+1,CT-=0.00072
+1,CTA=0.00699
+1,CTC=0.00210
+1,CTG=0.00058
+1,CTT=0.00036
+1,G--=0.00332
+1,G-A=0.00282
+1,G-C=0.01320
+1,G-G=0.00171
+1,G-T=0.00049
+1,GA-=0.00198
+1,GAA=0.01328
+1,GAC=0.03190
+1,GAG=0.00211
+1,GAT=0.00111
+1,GC-=0.00635
+1,GCA=0.02137
+1,GCC=0.15465
+1,GCG=0.00726
+1,GCT=0.00409
+1,GG-=0.00150
+1,GGA=0.00252
+1,GGC=0.01285
+1,GGG=0.00271
+1,GGT=0.00045
+1,GT-=0.00084
+1,GTA=0.00235
+1,GTC=0.01149
+1,GTG=0.00086
+1,GTT=0.00057
+1,T--=0.01338
+1,T-A=0.00181
+1,T-C=0.00203
+1,T-G=0.02824
+1,T-T=0.00099
+1,TA-=0.00216
+1,TAA=0.00202
+1,TAC=0.00127
+1,TAG=0.00687
+1,TAT=0.00028
+1,TC-=0.00262
+1,TCA=0.00132
+1,TCC=0.00335
+1,TCG=0.00865
+1,TCT=0.00036
+1,TG-=0.01747
+1,TGA=0.00380
+1,TGC=0.00417
+1,TGG=0.08460
+1,TGT=0.00231
+1,TT-=0.00211
+1,TTA=0.00059
+1,TTC=0.00072
+1,TTG=0.00698
+1,TTT=0.00035
+2,A--=0.22082
+2,A-A=0.00198
+2,A-C=0.00101
+2,A-G=0.00524
+2,A-T=0.00030
+2,AA-=0.00309
+2,AAA=0.00113
+2,AAC=0.00021
+2,AAG=0.00048
+2,AAT=0.00003
+2,AC-=0.00203
+2,ACA=0.00027
+2,ACC=0.00069
+2,ACG=0.00041
+2,ACT=0.00003
+2,AG-=0.00761
+2,AGA=0.00041
+2,AGC=0.00025
+2,AGG=0.00469
+2,AGT=0.00007
+2,AT-=0.00058
+2,ATA=0.00005
+2,ATC=0.00003
+2,ATG=0.00013
+2,ATT=0.00012
+2,C--=0.00112
+2,C-A=0.00316
+2,C-C=0.00035
+2,C-G=0.00036
+2,C-T=0.00003
+2,CA-=0.00142
+2,CAA=0.21487
+2,CAC=0.00527
+2,CAG=0.00191
+2,CAT=0.00039
+2,CC-=0.00028
+2,CCA=0.00917
+2,CCC=0.00352
+2,CCG=0.00043
+2,CCT=0.00009
+2,CG-=0.00028
+2,CGA=0.00301
+2,CGC=0.00042
+2,CGG=0.00123
+2,CGT=0.00004
+2,CT-=0.00004
+2,CTA=0.00076
+2,CTC=0.00011
+2,CTG=0.00006
+2,CTT=0.00016
+2,G--=0.00069
+2,G-A=0.00040
+2,G-C=0.00202
+2,G-G=0.00026
+2,G-T=0.00003
+2,GA-=0.00024
+2,GAA=0.00475
+2,GAC=0.00764
+2,GAG=0.00041
+2,GAT=0.00007
+2,GC-=0.00102
+2,GCA=0.00520
+2,GCC=0.22090
+2,GCG=0.00199
+2,GCT=0.00031
+2,GG-=0.00022
+2,GGA=0.00047
+2,GGC=0.00304
+2,GGG=0.00113
+2,GGT=0.00003
+2,GT-=0.00003
+2,GTA=0.00014
+2,GTC=0.00059
+2,GTG=0.00005
+2,GTT=0.00013
+2,T--=0.00351
+2,T-A=0.00043
+2,T-C=0.00029
+2,T-G=0.00914
+2,T-T=0.00009
+2,TA-=0.00041
+2,TAA=0.00123
+2,TAC=0.00028
+2,TAG=0.00301
+2,TAT=0.00004
+2,TC-=0.00035
+2,TCA=0.00034
+2,TCC=0.00110
+2,TCG=0.00315
+2,TCT=0.00003
+2,TG-=0.00525
+2,TGA=0.00190
+2,TGC=0.00142
+2,TGG=0.21461
+2,TGT=0.00038
+2,TT-=0.00011
+2,TTA=0.00006
+2,TTC=0.00004
+2,TTG=0.00076
+2,TTT=0.00016
+
+Longest Segment List:
+
+27106783 27108023
+27149114 27150259
+27170930 27171941
+27116222 27117125
+27108299 27109088
+27190694 27191482
+27189995 27190665
+27153545 27154205
+27180046 27180696
+26934893 26935504
+
+Annotations:
+
+Start: 27106783
+End: 27108023 
+HOXA2 gene --> This gene codes for a protein called homeobox A2, which is a transcription factor that plays a role in embryonic development, particularly in the formation of the hindbrain and facial structures.
+
+Start: 27149114
+End: 27150259 
+HOXA5 gene --> This gene codes for a protein called homeobox A5, which is also a transcription factor involved in embryonic development. HOXA5 is important for the development of various organs and tissues, including the limbs, respiratory system, and urogenital system.
+
+Start: 27170930
+End: 27171941 
+HOXA9 gene --> This gene codes for a protein called homeobox A9, which is another transcription factor involved in embryonic development. HOXA9 is particularly important for the development of blood cells and is frequently dysregulated in leukemia.
+
+Start: 27116222
+End: 27117125 
+HOXA3 gene --> This gene codes for a protein called homeobox A3, which is a transcription factor that plays a role in embryonic development, particularly in the development of the central nervous system and the gut.
+
+Start: 27108299
+End: 27109088 
+HOXA2 gene again
+
+
+Program:
+
+root_dir = "../../Downloads/GENOME540/"
+state1_counts_path = root_dir + "STATE1_anc_rep_counts.txt"
+state2_counts_path = root_dir + "STATE2_codon1_2_counts.txt"
+align_path = root_dir + "ENm010.txt"
+test_align_path = root_dir + "ENm006_short.txt"
+
+
+def read_counts(filename):
+    with open(filename, 'r') as f:
+        data = f.readlines()
+        data = [x.strip().split("\t") for x in data]
+        data = [[x[0], int(x[1])] for x in data]
+        counts = {}
+        for x in data:
+            counts[x[0]] = x[1]
+        return counts
+
+state1_counts = read_counts(state1_counts_path)
+state2_counts = read_counts(state2_counts_path)
+
+symbol_to_int = {}
+for i, symbol in enumerate(state1_counts.keys()):
+    symbol_to_int[symbol] = i
+
+
+def get_frequencies(counts):
+    return {x: counts[x] / sum(counts.values()) for x in counts}
+
+state1_freqs = get_frequencies(state1_counts)
+state2_freqs = get_frequencies(state2_counts)
+del state1_counts, state2_counts
+
+
+import numpy as np
+
+a = np.array([[0.95, 0.05], [0.10, 0.90]]) # transition probabilities
+b = np.array([list(state1_freqs.values()), list(state2_freqs.values())]) # emission probabilities
+pi = np.array([0.95, 0.05]) # initiation probabilities
+del state1_freqs, state2_freqs
+
+
+print("Initial State Probabilities:")
+print("1={:.5f}".format(pi[0]))
+print("2={:.5f}".format(pi[1]))
+
+print("\nTransition Probabilities:")
+print("1,1={:.5f}".format(a[0,0]))
+print("1,2={:.5f}".format(a[0,1]))
+print("2,1={:.5f}".format(a[1,0]))
+print("2,2={:.5f}".format(a[1,1]))
+
+print("\nEmission Probabilities:")
+for i, symbol in enumerate(sorted(symbol_to_int.keys())):
+    print("1,{}={:.5f}".format(symbol, b[0, i]))
+for i, symbol in enumerate(sorted(symbol_to_int.keys())):
+    print("2,{}={:.5f}".format(symbol, b[1, i]))
+
+
+def read_alignment(filename):
+    with open(filename, 'r') as f:
+        return f.read().split("\n")
+
+def parse_alignment(filename):
+    lines = read_alignment(filename)
+    start_pos = int(lines[0].split('-')[0].split(':')[1])
+    sequences = {}
+    for line in lines:
+        if line and not line.startswith('#'):
+            species, sequence = line.split('\t')
+            if species not in sequences:
+                sequences[species] = ''
+            sequences[species] += sequence
+    sequences = [sequences[species] for species in sequences]
+    sequences = [''.join(column) for column in zip(*sequences)]
+    sequences = [symbol_to_int[s] for s in sequences]
+    return start_pos, np.array(sequences)
+
+START, ALIGNMENTS = parse_alignment(align_path)
+
+
+class HMM(object):
+
+    def __init__(self, a, b, pi):
+        self.A = a
+        self.B = b
+        self.pi = pi
+    
+    def viterbi(self, V):
+
+        T = V.shape[0]
+        M = self.A.shape[0]
+
+        # delta and psi
+        delta = np.zeros((T, M))
+        psi = np.zeros((T, M))
+
+        # delta for t=0
+        delta[0, :] = np.log(self.pi) + np.log(self.B[:, V[0]])
+
+        # delta and psi for t > 0
+        for t in range(1, T):
+            for j in range(M):
+                probs = delta[t - 1] + np.log(self.A[:, j]) + np.log(self.B[j, V[t]])
+                delta[t, j] = np.max(probs)
+                psi[t, j] = np.argmax(probs)
+
+        # backtrack to find optimal path
+        path = np.zeros(T, dtype=int)
+        path[T-1] = np.argmax(delta[T-1, :])
+        for t in range(T-2, -1, -1):
+            path[t] = psi[t+1, path[t+1]]
+
+        return path
+
+
+hmm = HMM(a, b, pi)
+path = hmm.viterbi(ALIGNMENTS)
+
+
+def count_segs(arr):
+    diffs = np.diff(arr)
+    n_ones = np.sum(diffs == 1) + (arr[0] == 1)
+    n_zeros = np.sum(diffs == -1) + (arr[0] == 0)
+    return n_zeros, n_ones
+
+print("State Histogram:")
+print("1="+str(np.sum(path == 0)))
+print("2="+str(np.sum(path == 1)))
+
+print("\nSegment Histogram:")
+print("1="+str(count_segs(path)[0]))
+print("2="+str(count_segs(path)[1]))
+
+
+def find_longest_sequences(arr, n):
+    
+    sequences = []
+    current_sequence = 0
+
+    for i in range(len(arr)):
+        if arr[i] == 1:
+            current_sequence += 1
+        else:
+            if current_sequence > 0:
+                sequences.append((i - current_sequence, current_sequence-1))
+                current_sequence = 0
+                
+    if current_sequence > 0:
+        sequences.append((len(arr) - current_sequence, current_sequence-1))
+
+    sequences.sort(key=lambda x: x[1], reverse=True)
+    sequences = [(x[0]+START, x[0]+START+x[1]) for x in sequences]
+
+    return sequences[:n]
+
+top10 = find_longest_sequences(path, 10)
+print("Longest Segment List:\n")
+for start, end in top10:
+    print(start, end)
+
+
+print("Annotations:")
+
+for seq in top10[:5]:
+    print("\nStart:", seq[0])
+    print("End:", seq[1], "\n")
