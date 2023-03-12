@@ -17,6 +17,6 @@ Homework 6: D-segment Algorithm, Poisson Distributions
 
 Homework 7: Next-Generation Sequencing (NGS), Karlin-Altschul Theory
 
-Homework 8: Hidden Markov Models (HMM), Parameter Estimation (Viterbi & EM/Baum-Welch Training)
+Homework 8: Hidden Markov Models (HMM), Parameter Estimation (EM/Baum-Welch Training)
 
-Homework 9: Evolutionarily Conserved Segments (ECS), Multiple Alignment, Putative Neutral/Functional Sequences
+Homework 9: Viterbi Algorithm, Evolutionarily Conserved Segments (ECS), Putative Neutral/Functional Sequences
