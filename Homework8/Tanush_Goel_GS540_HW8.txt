@@ -1,0 +1,129 @@
+Assignment: GS540 HW8
+Name: Tanush Goel
+Email: tgoel02@uw.edu
+Language: Python
+Time: 8 hours
+
+Fasta: Pyrococcus_horikoshii.fasta
+>BA000001.2 Pyrococcus horikoshii OT3 DNA, complete genome
+
+Iterations for Convergence:
+250
+
+Log Likelihood:
+-2354138.654
+
+Initial State Probabilities:
+1=9.999e-1
+2=9.999e-5
+
+Transition Probabilities:
+1,1=2.579e-1
+1,2=7.421e-1
+2,1=7.452e-1
+2,2=2.548e-1
+
+Emission Probabilities:
+1,A=4.245e-1
+1,C=3.699e-1
+1,G=4.910e-2
+1,T=1.565e-1
+2,A=1.570e-1
+2,C=4.550e-2
+2,G=3.731e-1
+2,T=4.245e-1
+
+Program:
+
+root_dir = "../../Downloads/GENOME540/"
+f_path = "Pyrococcus_horikoshii.fasta"
+fasta_path = root_dir + f_path + ".txt"
+
+def read_fasta(filename):
+    with open(filename, 'r') as f:
+        lines = f.read().splitlines()
+        return lines[0], lines[1]
+
+title, fasta = read_fasta(fasta_path)
+
+import numpy as np
+
+tokenize = lambda seq: np.array([{'A': 0, 'T': 1, 'G': 2, 'C': 3}[base] for base in seq])
+V = tokenize(fasta)
+
+from scipy.special import logsumexp
+
+# NEW VERSION
+# log probabilities --> no underflow experienced
+class HMM(object):
+
+    def __init__(self, a, b, pi):
+        self.A = a
+        self.B = b
+        self.pi = pi
+        self.history = []
+        self.iterations = 0
+
+    def log_forward(self, V):
+        log_alpha = np.zeros((V.shape[0], self.A.shape[0]))
+        log_alpha[0, :] = np.log(self.pi) + np.log(self.B[:, V[0]])
+
+        for t in range(1, V.shape[0]):
+            for j in range(self.A.shape[0]):
+                log_alpha[t, j] = logsumexp(log_alpha[t - 1] + np.log(self.A[:, j])) + np.log(self.B[j, V[t]])
+
+        return log_alpha
+
+    def log_backward(self, V):
+        log_beta = np.zeros((V.shape[0], self.A.shape[0]))
+        log_beta[V.shape[0] - 1] = np.log(1)
+
+        for t in range(V.shape[0] - 2, -1, -1):
+            for j in range(self.A.shape[0]):
+                log_beta[t, j] = logsumexp(np.log(self.B[:, V[t + 1]]) + np.log(self.A[j, :]) + log_beta[t + 1])
+
+        return log_beta
+
+    def baum_welch(self, V, tolerance=0.1):
+
+        prev_log_likelihood = -np.inf
+        iteration = 1
+        while True:
+
+            # E-step: Compute the forward and backward probabilities
+            log_alpha = self.log_forward(V)
+            log_beta = self.log_backward(V)
+
+            # M-step: Update the parameters
+            log_gamma = log_alpha + log_beta - logsumexp(log_alpha[-1])
+
+            log_xi = np.zeros((V.shape[0] - 1, self.A.shape[0], self.A.shape[0]))
+            for t in range(V.shape[0] - 1):
+                log_xi[t] = log_alpha[t].reshape((-1, 1)) + np.log(self.A) + np.log(self.B[:, V[t+1]].reshape((1, -1))) + log_beta[t+1] - logsumexp(log_alpha[-1])
+
+            A = np.exp(logsumexp(log_xi, axis=0) - logsumexp(log_gamma[:-1], axis=0).reshape((-1, 1)))
+            B = np.zeros((self.B.shape[0], self.B.shape[1]))
+            for k in range(self.B.shape[1]):
+                B[:, k] = np.exp(logsumexp(log_gamma[V == k], axis=0) - logsumexp(log_gamma, axis=0))
+            pi = np.exp(log_gamma[0])
+
+            new_log_likelihood = logsumexp(log_alpha[-1])
+
+            print(f"Iteration {iteration+1}: {new_log_likelihood}")
+            self.history.append(new_log_likelihood)
+
+            if abs(new_log_likelihood - prev_log_likelihood) < tolerance:
+                self.iterations = iteration
+                break
+            else:
+                prev_log_likelihood = new_log_likelihood
+                self.A, self.B, self.pi = A, B, pi
+
+            iteration += 1
+
+a = np.array([[0.999, 0.001], [0.01, 0.99]]) # transition probabilities
+b = np.array([[0.3, 0.3, 0.2, 0.2], [0.15, 0.15, 0.35, 0.35]]) # emission probabilities
+pi = np.array([0.996, 0.004]) # initiation probabilities
+
+hmm = HMM(a, b, pi)
+hmm.baum_welch(V)
