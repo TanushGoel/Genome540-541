@@ -20,3 +20,9 @@ Homework 7: Next-Generation Sequencing (NGS), Karlin-Altschul Theory
 Homework 8: Hidden Markov Models (HMM), Parameter Estimation (EM/Baum-Welch Training)
 
 Homework 9: Viterbi Algorithm, Evolutionarily Conserved Segments (ECS), Putative Neutral/Functional Sequences
+
+
+# Genome541
+## Introduction to Computational Molecular Biology: Genome and Protein Sequence Analysis
+
+Genome 541 provides a survey of topics within the field of computational molecular biology. The course is divided into five two-week blocks, each devoted to a single topic and taught by a different instructor. This year, the topics include protein structure, single-cell analysis, epigenomics, cancer genomics, and phylogenetics.
