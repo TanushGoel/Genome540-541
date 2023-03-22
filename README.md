@@ -23,6 +23,6 @@ Homework 9: Viterbi Algorithm, Evolutionarily Conserved Segments (ECS), Putative
 
 
 # Genome541
-## Introduction to Computational Molecular Biology: Genome and Protein Sequence Analysis
+## Introduction to Computational Molecular Biology: Molecular Evolution
 
 Genome 541 provides a survey of topics within the field of computational molecular biology. The course is divided into five two-week blocks, each devoted to a single topic and taught by a different instructor. This year, the topics include protein structure, single-cell analysis, epigenomics, cancer genomics, and phylogenetics.
