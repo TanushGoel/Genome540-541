@@ -27,4 +27,6 @@ Homework 9: Viterbi Algorithm, Evolutionarily Conserved Segments (ECS), Putative
 
 Genome 541 provides a survey of topics within the field of computational molecular biology. The course is divided into five two-week blocks, each devoted to a single topic and taught by a different instructor. This year, the topics include protein structure, single-cell analysis, epigenomics, cancer genomics, and phylogenetics.
 
-Homework 1: Molecular Modeling, Protein Energetics, Ramachandran Space (phi-psi torsion angles)
+Homework 1: Protein Energetics/Modeling, Ramachandran Space (phi-psi torsion angles)
+
+Homework 2: Simulated Annealing Monte Carlo, Verlet Algorithm, Mfold Algorithm, Fragment Folding
