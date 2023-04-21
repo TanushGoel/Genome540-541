@@ -38,3 +38,4 @@ Homework 2: Simulated Annealing Monte Carlo, Verlet Algorithm, Mfold Algorithm, 
 Homework 3: Manifold Learning, KD-Tree/Ball Tree, (Absorbing) Markov Chains, Diffusion Maps, Trajectory Inference, RNA Velocity
 
 Homework 4: Variational Autoencoders (VAE), Gene Regulatory Networks, Cross-Modality Prediction
+
