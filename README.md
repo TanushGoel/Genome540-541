@@ -35,7 +35,24 @@ Homework 2: Simulated Annealing Monte Carlo, Verlet Algorithm, Mfold Algorithm, 
 
 <ins>Single-Cell Analysis</ins>
 
-Homework 3: Manifold Learning, KD-Tree/Ball Tree, (Absorbing) Markov Chains, Diffusion Maps, Trajectory Inference, RNA Velocity
+Homework 3: Manifold Learning, KD-Tree/Ball Tree, (Absorbing) Markov Chains, Diffusion Maps, Trajectory Inference
 
 Homework 4: Variational Autoencoders (VAE), Gene Regulatory Networks, Cross-Modality Prediction
 
+<ins>Epigenomics</ins>
+
+Homework 5: Gibbs Sampling, MEME, Benjamini-Hochberg Test, Bonferroni Correction, ML For Transcription Factor Binding
+
+Homework 6: 
+
+<ins>Cancer Genomics</ins>
+
+Homework 7: 
+
+Homework 8: 
+
+<ins>Phylogenetics</ins>
+
+Homework 9: 
+
+Homework 10: 
