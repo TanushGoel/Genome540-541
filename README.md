@@ -43,7 +43,7 @@ Homework 4: Variational Autoencoders (VAE), Gene Regulatory Networks, Cross-Moda
 
 Homework 5: Gibbs Sampling, MEME, Benjamini-Hochberg Test, Bonferroni Correction, ML For Transcription Factor Binding
 
-Homework 6: 
+Homework 6: Hi-C, Multidimensional Scaling (MDS), Gradient Descent, 3D Structure Inference
 
 <ins>Cancer Genomics</ins>
 
