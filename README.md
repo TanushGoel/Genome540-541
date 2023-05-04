@@ -1,7 +1,11 @@
+# Overview
+
+This repository documents my freshman experience in two graduate-level courses within field of which I have limited familiarity but lots of curiosity. I would love to showcase my work and progress through this repository, and I hope to contribute further to the field of computational biology in the future.
+
 # [Genome540](http://bozeman.mbt.washington.edu/compbio/mbt599/ "Course Page")
 ## Introduction to Computational Molecular Biology: Genome and Protein Sequence Analysis
 
-Genome 540 is the first quarter of a two-quarter introduction to protein and DNA sequence analysis and molecular evolution, including probabilistic models of sequences and of sequence evolution, computational gene identification, pairwise sequence comparison and alignment (algorithms and statistical issues), multiple sequence alignment and evolutionary tree construction, comparative genomics, and protein sequence/structure relationships. These represent the central computational approaches for interpreting genomes. The statistical and algorithmic ideas discussed (which include maximum likelihood estimation, hidden Markov models, dynamic programming) have wide applicability in other areas of computational & mathematical biology as well.
+*Genome 540 is the first quarter of a two-quarter introduction to protein and DNA sequence analysis and molecular evolution, including probabilistic models of sequences and of sequence evolution, computational gene identification, pairwise sequence comparison and alignment (algorithms and statistical issues), multiple sequence alignment and evolutionary tree construction, comparative genomics, and protein sequence/structure relationships. These represent the central computational approaches for interpreting genomes. The statistical and algorithmic ideas discussed (which include maximum likelihood estimation, hidden Markov models, dynamic programming) have wide applicability in other areas of computational & mathematical biology as well.*
 
 Homework 1: Suffix Arrays, UltraConserved Elements (UCE)
 
@@ -25,7 +29,7 @@ Homework 9: Viterbi Algorithm, Evolutionarily Conserved Segments (ECS), Putative
 # Genome541
 ## Introduction to Computational Molecular Biology: Molecular Evolution
 
-Genome 541 provides a survey of topics within the field of computational molecular biology. The course is divided into five two-week blocks, each devoted to a single topic and taught by a different instructor. This year, the topics include protein structure, single-cell analysis, epigenomics, cancer genomics, and phylogenetics.
+*Genome 541 provides a survey of topics within the field of computational molecular biology. The course is divided into five two-week blocks, each devoted to a single topic and taught by a different instructor. This year, the topics include protein structure, single-cell analysis, epigenomics, cancer genomics, and phylogenetics.*
 
 <ins>Protein Structure</ins>
 
