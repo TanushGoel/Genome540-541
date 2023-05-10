@@ -51,7 +51,7 @@ Homework 6: Hi-C, Multidimensional Scaling (MDS), Gradient Descent, 3D Structure
 
 <ins>Cancer Genomics</ins>
 
-Homework 7: 
+Homework 7: Binomial Mixture Model, EM Algorithm, SNV genotyping
 
 Homework 8: 
 
