@@ -21,7 +21,7 @@ Homework 6: D-segment Algorithm, Poisson Distributions
 
 Homework 7: Next-Generation Sequencing (NGS), Karlin-Altschul Theory
 
-Homework 8: Hidden Markov Models (HMM), Parameter Estimation (EM/Baum-Welch Training)
+Homework 8: Hidden Markov Models (HMM), Baum-Welch Algorithm/Expectation Maximization (EM)
 
 Homework 9: Viterbi Algorithm, Evolutionarily Conserved Segments (ECS), Putative Neutral/Functional Sequences
 
@@ -51,7 +51,7 @@ Homework 6: Hi-C, Multidimensional Scaling (MDS), Gradient Descent, 3D Structure
 
 <ins>Cancer Genomics</ins>
 
-Homework 7: Binomial Mixture Model, EM Algorithm, SNV genotyping
+Homework 7: Binomial Mixture Model, Maximum Likelihood Estimation, SNV genotyping
 
 Homework 8: 
 
