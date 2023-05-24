@@ -23,7 +23,7 @@ Homework 7: Next-Generation Sequencing (NGS), Karlin-Altschul Theory
 
 Homework 8: Hidden Markov Models (HMM), Baum-Welch Algorithm/Expectation Maximization (EM)
 
-Homework 9: Viterbi Algorithm, Evolutionarily Conserved Segments (ECS), Putative Neutral/Functional Sequences
+Homework 9: Viterbi/Max Sum Algorithm, Evolutionarily Conserved Segments (ECS), Putative Neutral/Functional Sequences
 
 
 # Genome541
@@ -51,9 +51,9 @@ Homework 6: Hi-C, Multidimensional Scaling (MDS), Gradient Descent, 3D Structure
 
 <ins>Cancer Genomics</ins>
 
-Homework 7: Binomial Mixture Model, Maximum Likelihood Estimation, SNV genotyping
+Homework 7: Single-Nucleotide Variant (SNV) Caller, Binomial Mixture Model (BMM), Maximum Likelihood Estimation, SNV genotyping
 
-Homework 8: 
+Homework 8: Copy Number Alteration (CNA) Caller, Hidden Markov Model (HMM)
 
 <ins>Phylogenetics</ins>
 
