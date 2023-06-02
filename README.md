@@ -57,6 +57,6 @@ Homework 8: Copy Number Alteration (CNA) Caller, Hidden Markov Model (HMM)
 
 <ins>Phylogenetics</ins>
 
-Homework 9: 
+Homework 9: Likelihood-Based Phylogenetics, Substitution Models
 
-Homework 10: 
+Homework 10: Phylogenetic Trees, Bootstrapping, Bayesian Statistics
