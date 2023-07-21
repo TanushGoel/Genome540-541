@@ -1,6 +1,6 @@
 # Overview
 
-This repository documents my freshman experience in two graduate-level courses within field of which I have limited familiarity but lots of curiosity. I would love to showcase my work and progress through this repository, and I hope to contribute further to the field of computational biology in the future.
+This repository documents my freshman experience in two graduate-level courses within a field of which I have limited familiarity but lots of curiosity. I would love to showcase my work and progress through this repository, and I hope to contribute further to the field of computational biology in the future.
 
 # [Genome540](http://bozeman.mbt.washington.edu/compbio/mbt599/ "Course Page")
 ## Introduction to Computational Molecular Biology: Genome and Protein Sequence Analysis
